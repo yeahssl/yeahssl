@@ -22,6 +22,28 @@ public class OperatorPractice4 {
 	    
 	    String r = k >= 40 && e >= 40 && m >= 40 && (k + e + m)/3.0 >=60 ? "합격":"불합격";
 	    System.out.println(r);
+	 
+	    
+	    // 풀이
+	    
+	    // System.out.print("국어 : " );
+	    // int kor = sc.nextInt();
+	    
+	    // System.out.print("영어 : " );
+	    // int eng = sc.nextInt();
+	    
+	    // System.out.print("수학 : " );
+	    // int math = sc.nextInt();
+	    
+	    // (합계) int sum = kor + eng + math;
+	    // (평균) double avg = sum / 3.0(double);
+	    
+	    // String result = (k >= 40 && e >= 40 && m >= 40 && (k + e + m)/3.0 >=60) 
+	    //					? "합격":"불합격";
+	    
+	    // System.out.println("합계 : "+ sum);
+	    // System.out.printf("평균 : %.1f \n", avg);
+	    // System.out.println(result);
 	    
 	}
 
