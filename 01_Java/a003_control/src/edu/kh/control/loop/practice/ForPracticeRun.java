@@ -8,7 +8,7 @@ public class ForPracticeRun {
 
 		
 		//fp.practice1();
-		fp.practice5();
+		fp.practice12();
 		
 		
 		
