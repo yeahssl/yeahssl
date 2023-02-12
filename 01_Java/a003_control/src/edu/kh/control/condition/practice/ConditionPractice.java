@@ -25,6 +25,42 @@ public class ConditionPractice {
 
 	
 	public void practice2 () {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("국어점수 : ");
+		int input = sc.nextInt();
+		
+		System.out.print("수학점수 : ");
+		int input2 = sc.nextInt();
+		
+		System.out.print("영어점수 : ");
+		int input3 = sc.nextInt();
+		
+		String res;
+		
+		int sum = input + input2 + input3;
+		double avg = sum / 3.0;
+		
+		switch(input) {
+		case 1 : if( input >= 40 && input2 >= 40 && input3 >= 40 && avg >= 60 ) {
+    		System.out.printf("%d : %d ");
+			System.out.println("축하합니다, 합격입니다!");
+		} else {
+			System.out.printf("%d %s %d = %d", num1, op, num3, num1/num3);
+		}break;
+		
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	

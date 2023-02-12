@@ -30,5 +30,5 @@ public class JavaTest {
 		
 		// ctrl + f11 : 코드 실행(Run)
 	}
-	
+
 }
