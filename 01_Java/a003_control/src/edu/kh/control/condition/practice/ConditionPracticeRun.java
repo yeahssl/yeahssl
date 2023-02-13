@@ -6,7 +6,7 @@ public class ConditionPracticeRun {
 		
 		ConditionPractice cp = new ConditionPractice();
 		
-		cp.practice3 ();
+		cp.practice4 ();
 //		cp.practice1 ();
 //		cp.practice1 ();
 //		cp.practice1 ();

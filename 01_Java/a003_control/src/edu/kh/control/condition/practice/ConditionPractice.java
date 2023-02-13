@@ -36,9 +36,9 @@ public class ConditionPractice {
 		
 		String result;
 		int sum = kor+math+eng;
-		int avg=sum/3;
+		int avg = sum/3;
 		
-		if(kor >=40 && math >=40 && eng >=40 && avg>=60) {
+		if(kor >= 40 && math >= 40 && eng >= 40 && avg >= 60) {
 		   System.out.printf("국어 : %d\n" + "수학 : %d\n" + "영어 : %d\n" + 
 				   			"합계 : %d\n" + "평균 : %d\n", kor, math, eng, sum, avg);
 		   System.out.println("축하합니다, 합격입니다!");
@@ -59,19 +59,53 @@ public class ConditionPractice {
 		
 		switch(month) {
 		case 12 : case 1 :  case 3 : case 5 : case 7 : case 8 : case 10 : result = "31일까지 있습니다."; break; 
-		case 2 : result = "28일까지 있습니다."; break;
+		case 2 : result = ("28일까지 있습니다."); break;
 		case 4 :  case 6 :  case 11 :  result = "30일까지 있습니다."; break;
 		default :  result = "잘못 입력된 달입니다."; break;	
 	}
+		System.out.printf("%d월은 ", month);
 		System.out.printf(result);
 	}	
 	
 	
 	public void practice4 () {
+		Scanner sc = new Scanner(System.in);
 		
-	}
+		System.out.print("키(m)를 입력해 주세요 : ");
+		double hei = sc.nextDouble();
+		System.out.print("몸무게(kg)를 입력해 주세요 : ");
+		double wei = sc.nextDouble();
+
+		double bmi = wei/(hei*hei);
+		String result;
+	
+		switch(" ") {
+		case " " : if( bmi < 18.5) {
+			System.out.printf("BMI지수 : %.14f" , bmi);
+			System.out.println("\n저체중");
+		} else if ( bmi < 23 && bmi > 18.5 ) {
+			System.out.printf("BMI지수 : %.14f" , bmi);
+			System.out.println("\n정상체중");
+		} else if ( bmi >= 23 && bmi < 25 ) {
+			System.out.printf("BMI지수 : %.14f" , bmi);
+			System.out.println("\n과체중");
+		} else if ( bmi >=25 && bmi < 30 ) {
+			System.out.printf("BMI지수 : %.14f" , bmi);
+			System.out.println("\n비만");
+		} else {
+			System.out.printf("BMI지수 : %.14f" , bmi);
+			System.out.println("\n고도비만");
+		} break;
+			
+		} 
+		
+		}
+		
+
 	
 	public void practice5 () {
+		
+		
 		
 	}
 

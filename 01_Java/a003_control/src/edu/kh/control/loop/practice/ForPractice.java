@@ -263,21 +263,27 @@ public class ForPractice {
 	
 	public void practice13() {
 		
+		Scanner sc = new Scanner(System.in);
 		
+		System.out.print("자연수 하나를 입력하세요 : ");
+		int input = sc.nextInt();
 		
-		
-		
-		
-		
-		
+		int count = 0;
+		for(int i=1; i<=input; i++) {
+			if(i % 2 == 0 || i % 3 == 0) {
+				System.out.printf(i + " ");
+		}
+			if(i % 2 == 0 && i % 3 == 0) {
+				count++;
+				} 
+			}
+		System.out.println("\ncount : " + count);
+		}
 	}
+	
+	
+	
 
-	
-	
-	
-	
-	
-}
 
 
 
