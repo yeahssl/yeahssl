@@ -74,7 +74,8 @@ public class ForPractice {
 		Scanner sc = new Scanner(System.in);	
 		System.out.printf("숫자 : ");
 		int input = sc.nextInt();
-		System.out.println("==== 4단 ====");
+		
+		System.out.printf("==== %d단 ====\n", input);
 		
 		
 		for(int i = 1; i <= 9; i++) {
@@ -100,7 +101,7 @@ public class ForPractice {
 			   }
 			}else{
 				System.out.println("2~9 사이 숫자만 입력해주세요");
-	     	} 
+	     } 
 		
 	}
 	
@@ -133,7 +134,6 @@ public class ForPractice {
 			System.out.println();
 		}
 	}
-
 	
 	
 	public void practice9() {
@@ -189,6 +189,35 @@ public class ForPractice {
 		}
 			
 	}
+	
+	/* 풀이 1
+	 * 	Scanner sc = new Scanner(System.in);
+		System.out.printf("정수 입력 : ");
+		int input = sc.nextInt();
+	 * 	
+	 * for(int row=1; row<=input; row++){
+	 * 		
+	 * 	   for(int col=input-1; col>=1; col--){
+	 * 			system.out.print(" ");
+	 * 		}
+	 * 	   for(int col=1 ; col<=row; col++){
+	 * 			sytem.out.print("*");
+	 * }
+	 * 	system.out.println();
+	 * }
+	 * 
+	 * 풀이 2
+	 *  for(int col=1; col<=input+row-1; col++){
+	 *		
+	 *		if(input-row >= col) {
+	 *			system.out.print(" ");
+	 *		}else {
+	 *			system.out.print("*"); 
+	 *
+	 *		} 		
+	 *  }
+	 * 
+	 * */
 		
 	
 	public void practice12() {
@@ -205,21 +234,31 @@ public class ForPractice {
 				System.out.printf("*");
 			  }
 			System.out.println();
-		  }
+		}
 			for(int z1=input*1; z1<=input; z1++) {
 				for(int i1=1; i1<=z1; i1++) {
 					System.out.printf("*");
 	   }
 	}
 }
-		
-		
-		
-		
-		
-		
-		
 	
+//	풀이
+//	public void practice12() {
+//		Scanner sc = new Scanner(System.in);
+//		System.out.printf("정수 입력 : ");
+//		int input = sc.nextInt();
+	
+//		for(int row1; row<= input ; row++) {
+//			for(int col=1; col<=input; col++) {
+//				if(row==1 || row==input || col==1 || col==input) {
+//					System.out.print("*");
+//				}else {
+//				System.out.print("*");
+//			}
+//		}	
+//			System.out.println(); // 개행
+//	}	
+//}
 	
 	
 	public void practice13() {
