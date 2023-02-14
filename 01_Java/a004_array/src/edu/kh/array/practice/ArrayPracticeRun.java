@@ -6,8 +6,10 @@ public class ArrayPracticeRun {
 		ArrayPractice ap = new ArrayPractice(); {
 			
 			
-			ap.ex1();
-			
+//			ap.ex1();
+//			ap.ex2();
+//			ap.ex3();
+			ap.ex4();
 		}
 		
 		
