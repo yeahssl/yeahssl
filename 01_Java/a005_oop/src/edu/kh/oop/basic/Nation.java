@@ -15,7 +15,7 @@ public class Nation {
 	/* 속성(== 멤버 변수) */
 	
 	// [캡슐화] 두 번째 특징(원칙)
-	// 멤버변수는 private으로 지정
+	// 멤버변수는 private으로 지정 // 자바에서는 속성을 멤버변수라고 함
 	private String pNo;  // 주민등록번호
 	
 	String name; // 이름
