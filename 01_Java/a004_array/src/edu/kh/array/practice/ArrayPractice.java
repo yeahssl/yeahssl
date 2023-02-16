@@ -47,17 +47,59 @@ public class ArrayPractice {
 	}
 	
 	public void ex4() {
+		
+		int[] arr = new int[5];
 		Scanner sc = new Scanner(System.in);
-		System.out.print("입력 0 : ");
-		int num1 = sc.nextInt();
 		
 		
+		for(int i=0; i<5; i++) {
+			System.out.printf("입력 %d : ", i);
+			arr[i]= sc.nextInt();
+		}
+			System.out.print("검색할 값 : ");
+			int search = sc.nextInt();
+			int index = 0;
 		
-	}
+			boolean flag = true;
+			
+			for(int i=0; i<arr.length; i++) {
+				if(search == arr[i]) {
+					index = i;
+					flag = false;
+					break;
+				}
+			}
+			if(flag) {
+				System.out.println("존재하지 않습니다.");
+			} else {
+				System.out.printf("인덱스 : %d", index);
+			}
+		}
+		
+	
 	public void ex5() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String str = sc.next();
 		
+		System.out.print("문자 : ");
+		char a = sc.next().charAt(0);
 		
+		System.out.printf("%s에 %s가 존재하는 위치(인덱스) : ", str, a);
+		
+		char[] b = new char[str.length()];
+		int count = 0;
+		
+		for(int i = 0 ; i < b.length; i++) {
+			b[i] = str.charAt(i);
+			if( b[i] == a ) {
+				System.out.print(i + " ");
+				count++;
+			}
+		} System.out.printf("\n %s 개수 : %d" ,a , count );
 	}
+	
+	
 	public void ex6() {
 		
 		
