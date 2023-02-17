@@ -102,9 +102,58 @@ public class ArrayPractice {
 	
 	public void ex6() {
 		
+//		사용자가 배열의 길이를 직접 입력하여 그 값만큼 정수형 배열을 선언 및 할당하고
+//		배열의 크기만큼 사용자가 직접 값을 입력하여 각각의 인덱스에 값을 초기화 하세요.
+//		그리고 배열 전체 값을 나열하고 각 인덱스에 저장된 값들의 합을 출력하세요.
+//		
+//		[실행 화면]
+//		정수 : 5
+//		배열 0번째 인덱스에 넣을 값 : 4
+//		배열 1번째 인덱스에 넣을 값 : -4
+//		배열 2번째 인덱스에 넣을 값 : 3
+//		배열 3번째 인덱스에 넣을 값 : -3
+//		배열 4번째 인덱스에 넣을 값 : 2
+//		4 -4 3 -3 2 
+//		총 합 : 2
 		
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.printf("정수 : ");
+	int input = sc.nextInt();
+	
+	int[] arr = new int[input];
+	
+	for(int i = 0; i < arr.length; i++) {
+		
+		System.out.printf("배열 %d번째 인덱스에 넣을 값 : ", i);
+		int num = sc.nextInt();
+		
+		arr[i] = num;
+		
+	} int sum = 0;
+	for(int i = 0; i < arr.length; i++) {
+		System.out.printf(arr[i] + " ");
+		
+		sum += arr[i];
 	}
+	System.out.printf("\n총합 : %d", sum);
+	
+}
+	
+	
 	public void ex7() {
+//		주민등록번호를 입력 받아 char 배열에 저장한 후 출력하세요.
+//		단, char 배열 저장 시 성별을 나타내는 숫자 이후부터 *로 저장하세요.
+//		[실행 화면]
+//		주민등록번호(-포함) : 123456-1234567
+//		123456-*******
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("주민등록번호 : ");
+		String num = sc.next();
+		
+		char[] a = new char[num.length()];
+		
 		
 		
 	}

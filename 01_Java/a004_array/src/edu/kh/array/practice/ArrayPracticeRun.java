@@ -10,7 +10,9 @@ public class ArrayPracticeRun {
 //			ap.ex2();
 //			ap.ex3();
 //			ap.ex4();
-			ap.ex5();
+//			ap.ex5();
+//			ap.ex6();
+			ap.ex7();
 		
 		
 		}
