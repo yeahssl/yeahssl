@@ -1,5 +1,6 @@
 package edu.kh.array.practice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -154,57 +155,330 @@ public class ArrayPractice {
 		
 		char[] a = new char[num.length()];
 		
+		for(int i = 0 ; i < 8; i++) {
+			a[i] = num.charAt(i);
 		
+				System.out.print(a[i]);
+		} 
+		for(int z = 8; z <num.length(); z++ ) {
+			a[z] = num.charAt(z);
+			System.out.printf("*",a[z]);
+		}
 		
 	}
+	
 	public void ex8() {
+		/* 3이상인 홀수를 입력 받아 배열의 중간까지는 1부터 1씩 증가하여 오름차순으로 값을 넣고, 
+		 * 중간 이후부터 끝까지는 1씩 감소하여 내림차순으로 값을 넣어 출력하세요.
+		 * 딘, 입력한 정수가 홀수가 아니거나 3미만일 경우 "다시 입력하세요"를 출력하고
+		 * 다시 정수를 받도록 하세요.
+		 */
+		
+		Scanner sc = new Scanner(System.in);
 		
 		
+		while(true) {
+			
+			System.out.print("정수 : ");
+		
+			int num = sc.nextInt();
+		
+			int[] arr = new int[num];
+		
+			if(num >= 3 && num % 2 == 1) {
+				for(int i=0; i<arr.length; i++) {
+					arr[i] = i+1;
+					System.out.printf("%d,",arr[i]);
+				}for(int z=num-2; z>-1; z--) {
+					if(z == 0) {
+					System.out.printf("%d",arr[z]);	
+					}else {
+					System.out.printf("%d,",arr[z]);	
+					}
+				}break;
+					} 
+		}
 	}
+		
+	
+		
+		
+	
 	public void ex9() {
 		
+		// 10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고,
+		// 1~10 사이의 난수를 발생시켜 배열에 초기화한 후 출력하세요.
 		
+		int[] arr = new int[11];
+		
+		
+		for(int i=1; i<11; i++) {
+			
+			arr[i] = (int)(Math.random()*10+1);
+		    
+			System.out.print(arr[i] + " ");
+			
+		}
 	}
+		
+	
 	public void ex10() {
 		
 		
+		int[] arr = new int[10];
+		
+		for(int i=0; i<arr.length; i++) {
+			
+			arr[i] = (int)(Math.random()*10+1);
+		    
+			System.out.print(arr[i] + " ");
+			
+		}System.out.println();
+		
+		int max = -1;
+		int min = 11;
+		
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i] > max) {
+				max = arr[i];
+			}
+				
+			if(arr[i] < min) {
+				min = arr[i];
+			}
+	
+		}
+		 System.out.printf("최대값 : %d\n" ,max);
+		 System.out.printf("최소값 : %d" ,min);
+		 
 	}
 	public void ex11() {
+//		10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고
+//		1~10 사이의 난수를 발생시켜 중복된 값이 없게 배열에 초기화한 후 출력하세요
+		
+		int[] arr = new int[10];
 		
 		
-	}
+		for(int i=0; i<arr.length; i++) {
+			int num = (int)(Math.random()*10+1);
+			arr[i] = num;
+			for(int z=0; z<i; z++) {
+			if(arr[i]==arr[z]) {
+				  i--; 
+				 
+			}   break;
+			} 
+			System.out.print(arr[i] + " ");
+		}
+			
+			} 
+			
+	
+				
+		
+	
 	public void ex12() {
+		// 로또 번호 자동 생성기 프로그램을 만들기.
+		// (중복 값 없이 오름차순으로 정렬하여 출력하세요.)
 		
+		int lotto[] = new int[6];
 		
+		for(int i = 0; i < lotto.length; i++) {
+			lotto[i] = (int)(Math.random() * 45+1);
+			for(int z=1; z<i; z++) {
+				if(lotto[i] == lotto[z]) {
+					i--;
+				}
+					
+			}	
+		}
+			Arrays.sort(lotto);
+			for(int i : lotto)
+					System.out.print(i + " ");		
 	}
+			
 	public void ex13() {
 		
 		
-	}
+//		문자열을 입력 받아 문자열에 어떤 문자가 들어갔는지 배열에 저장하고
+//		문자의 개수와 함께 출력하세요. (중복 제거)
+		
+//		[실행 화면]
+//		문자열 : application
+//		문자열에 있는 문자 : a, p, l, i, c, t, o, n
+//		문자 개수 : 8
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String alp = sc.next();
+		
+		char[] chars = alp.toCharArray();
+        Arrays.sort(chars);
+
+        int charCount = 1;
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i] != chars[i-1]) {
+                charCount++;
+            }
+        }
+
+        System.out.print("문자열에 있는 문자 : ");
+        for (int i = 0; i < chars.length; i++) {
+            if (i == 0 || chars[i] != chars[i-1]) {
+                System.out.print(chars[i] + ", ");
+            }
+        }
+        System.out.println();
+        System.out.println("문자 개수 : " + charCount);
+    }
+	
+	
 	public void ex14() {
+		Scanner sc = new Scanner(System.in);
+
+        System.out.print("배열의 크기를 입력하세요 : ");
+        int size = sc.nextInt();
+
+        String[] strArray = new String[size];
+
+        for (int i = 0; i < size; i++) {
+            System.out.print((i + 1) + "번째 문자열 : ");
+            strArray[i] = sc.next();
+        }
+
+        while (true) {
+            System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+            String input = sc.next();
+
+            if (input.equalsIgnoreCase("y")) {
+                System.out.print("더 입력하고 싶은 개수 : ");
+                int count = sc.nextInt();
+
+                
+                String[] newArray = new String[size + count];
+                System.arraycopy(strArray, 0, newArray, 0, size);
+
+                for (int i = size; i < size + count; i++) {
+                    System.out.print((i + 1) + "번째 문자열 : ");
+                    newArray[i] = sc.next();
+                }
+
+                strArray = newArray;
+                size += count;
+            } else if (input.equalsIgnoreCase("n")) {
+                break;
+            }
+        }
+
+        System.out.print("[");
+        for (int i = 0; i < size; i++) {
+            if (i == size - 1) {
+                System.out.print(strArray[i]);
+            } else {
+                System.out.print(strArray[i] + ", ");
+            }
+        }
+        System.out.println("]");
+    }
 		
-		
-	}
+	
 	public void ex15() {
 		
+		int[][] arr = new int[3][3];
+			
+			for(int row = 0; row < arr.length; row++) {
+			for(int col = 0; col < arr[row].length; col++) {
+				System.out.print("(" + row + "," + col +")" );
+				
+				}
+			System.out.println();
+			}	
 		
-	}
+		}
+	
 	public void ex16() {
+		int[][] arr = new int[4][4];
 		
-		
+		int count = 1;
+		for(int row = 0; row < arr.length; row++) {
+			for(int col = 0; col<arr[row].length; col++) {
+				arr[row][col] = count;
+				count++;
+			}
+		}
+		for(int row=0; row<arr.length; row++) {
+			for(int col = 0; col<arr[row].length; col++) {
+				System.out.print(arr[row][col] + " ");
+			}System.out.println();
+		}
 	}
+	
 	public void ex17() {
+		int[][] arr = new int[4][4];
 		
+		int count = 16;
+		for(int row = 0; row < arr.length; row++) {
+			for(int col = 0; col<arr[row].length; col++) {
+				arr[row][col] = count;
+				count--;
+			}
+		}
+		for(int row=0; row<arr.length; row++) {
+			for(int col = 0; col<arr[row].length; col++) {
+				System.out.print(arr[row][col] + " ");
+			}System.out.println();
+		}
 		
 	}
 	public void ex18() {
+		int [][] arr = new int[4][4];
 		
-		
+		for (int i = 0; i < 3; i++) {
+		    for (int z = 0; z < 3; z++) {
+		    	arr[i][z] = (int)(Math.random()*10+1);
+		    }
+		}
+		for (int i = 0; i < 3; i++) {
+		    int rowSum = 0;
+		    int colSum = 0;
+		    for (int z = 0; z < 3; z++) {
+		        rowSum += arr[i][z];
+		        colSum += arr[z][i];
+		    }
+		    arr[i][3] = rowSum;
+		    arr[3][i] = colSum;
+		}
+
+		int totalSum = 0;
+		for (int i = 0; i < 3; i++) {
+		    totalSum += arr[3][i];
+		}
+		arr[3][3] = totalSum;
+
+		for (int i = 0; i < 4; i++) {
+		    for (int z = 0; z < 4; z++) {
+		        System.out.print(arr[i][z] + " ");
+		    }
+		    System.out.println();
+		}
 	}
+	
 	public void ex19() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("행 크기 : ");
+		int size1 = sc.nextInt();
+		System.out.print("열 크기 : ");
+		int size2 = sc.nextInt();
 		
+		int [][] arr = new int[size1][size2];
 		
-	}
+		for() {
+			
+		}
+		
+		}
+		
+	
 	public void ex20() {
 		
 		
