@@ -289,7 +289,6 @@ public class ArrayPractice {
 				if(lotto[i] == lotto[z]) {
 					i--;
 				}
-					
 			}	
 		}
 			Arrays.sort(lotto);
@@ -312,20 +311,20 @@ public class ArrayPractice {
 		System.out.print("문자열 : ");
 		String alp = sc.next();
 		
-		char[] chars = alp.toCharArray();
-        Arrays.sort(chars);
+		char[] a = alp.toCharArray();
+        Arrays.sort(a);
 
         int charCount = 1;
-        for (int i = 1; i < chars.length; i++) {
-            if (chars[i] != chars[i-1]) {
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] != a[i-1]) {
                 charCount++;
             }
         }
 
         System.out.print("문자열에 있는 문자 : ");
-        for (int i = 0; i < chars.length; i++) {
-            if (i == 0 || chars[i] != chars[i-1]) {
-                System.out.print(chars[i] + ", ");
+        for (int i = 0; i < a.length; i++) {
+            if (i == 0 || a[i] != a[i-1]) {
+                System.out.print(a[i] + ", ");
             }
         }
         System.out.println();
@@ -339,11 +338,11 @@ public class ArrayPractice {
         System.out.print("배열의 크기를 입력하세요 : ");
         int size = sc.nextInt();
 
-        String[] strArray = new String[size];
+        String[] arr = new String[size];
 
         for (int i = 0; i < size; i++) {
             System.out.print((i + 1) + "번째 문자열 : ");
-            strArray[i] = sc.next();
+            arr[i] = sc.next();
         }
 
         while (true) {
@@ -356,14 +355,14 @@ public class ArrayPractice {
 
                 
                 String[] newArray = new String[size + count];
-                System.arraycopy(strArray, 0, newArray, 0, size);
+                System.arraycopy(arr, 0, newArray, 0, size);
 
                 for (int i = size; i < size + count; i++) {
                     System.out.print((i + 1) + "번째 문자열 : ");
                     newArray[i] = sc.next();
                 }
 
-                strArray = newArray;
+                arr = newArray;
                 size += count;
             } else if (input.equalsIgnoreCase("n")) {
                 break;
@@ -373,9 +372,9 @@ public class ArrayPractice {
         System.out.print("[");
         for (int i = 0; i < size; i++) {
             if (i == size - 1) {
-                System.out.print(strArray[i]);
+                System.out.print(arr[i]);
             } else {
-                System.out.print(strArray[i] + ", ");
+                System.out.print(arr[i] + ", ");
             }
         }
         System.out.println("]");
@@ -472,31 +471,9 @@ public class ArrayPractice {
 		
 		int [][] arr = new int[size1][size2];
 		
-		for() {
-			
-		}
 		
-		}
 		
+	}	
 	
-	public void ex20() {
-		
-		
-	}
-	public void ex21() {
-		
-		
-	}
-	public void ex22() {
-		
-		
-	}
-	public void ex23() {
-		
-		
-	}
-	public void ex24() {
-		
-		
-	}
+
 }
