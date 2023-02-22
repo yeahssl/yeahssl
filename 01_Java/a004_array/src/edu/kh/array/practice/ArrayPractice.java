@@ -569,6 +569,43 @@ public class ArrayPractice {
 		    }
 		    System.out.println();
 		}
+	
+	/*풀이
+		
+	// 1. 4행 4열 2차원 배열 생성
+	int [][] arr = new int[4][4];
+	
+	final int LAST_ROW_INDEX = arr.length - 1; // 행 마지막 인덱스
+	final int LAST_COL_INDEX = arr[0].length - 1; // 열 마지막 인덱스
+	
+	// 2. 0행 0열 ~ 2행 2열 까지 1~10 사이 난수 대입
+	Random random = new Random();
+		
+//  random.nextInt(); 0이상 1미만 정수		
+	
+	for() {int row=0; row <LAST_ROW_INDEX; row++) {
+		for() {int col=0; col <LAST_COL_INDEX; col++){
+			
+			arr[row][col] = random.nextInt(10) + 1;
+			
+			// 3행 3열에 발생된 난수 모두 누적
+			arr[LAST_ROW_INDEX][LAST_COL_INDEX] += arr[row][col];
+			
+			// 난수 대입과 동시에 해당 행/열의 끝에 누적
+			arr[row][LAST_COL_INDEX] += arr[row][col]; // 각 행 마지막 열에 누적
+			arr[LAST_ROW_INDEX][col] += arr[row][col]; // 각 행 마지막 열에 누적
+			}
+		}
+	
+	// 출력용 2중 for문 
+	for() {int row=0; row <LAST_ROW_INDEX; row++) {
+		for() {int col=0; col <LAST_COL_INDEX; col++){
+			System.out.printf("%3d", arr[row][col])
+		}
+	}	
+
+}
+	*/
 	}
 	
 	public void ex19() {
