@@ -26,7 +26,7 @@ public class BasicRun {
 		// 객체의 속성에 저장된 값 출력
 //		System.out.println(n1.pNo);
 
-		System.out.println( n1.getpNo() );
+		System.out.println(n1.getpNo() );
 		System.out.println(n1.name);
 		System.out.println(n1.gender);
 		System.out.println(n1.adress);
