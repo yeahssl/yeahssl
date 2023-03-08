@@ -419,23 +419,3 @@ ORDER BY DEPT_CODE DESC NULLS LAST, SALARY DESC;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

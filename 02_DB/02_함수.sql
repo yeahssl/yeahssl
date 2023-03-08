@@ -222,6 +222,7 @@ FROM DUAL;
 
 SELECT EMP_ID, EMP_NAME, 
 	 TO_CHAR(SALARY * 12, 'L999,999,999') 연봉
+	 
 FROM EMPLOYEE;
 --> 숫자를 문자열로 바꿀 때 칸 수가 충분하지 않으면  '#'으로 채워짐
 
