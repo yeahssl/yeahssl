@@ -12,6 +12,8 @@ public class APIService {
 	
 	private Student[] studentList = new Student[10];
 	
+	
+	
 	public APIService() {
 		studentList[0] = new Student(1, 1, 1, "김영희");
 		studentList[1] = new Student(2, 3, 4, "홍길동");

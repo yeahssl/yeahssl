@@ -10,7 +10,7 @@ public class FieldTest1 {
 	// 접근제한자
 	// + public 	: 전체, 어디서든지
 	// # protected : 같은 패키지 + 패키지 달라도 상속관계면 가능
-	// ~ (default) 	: 같인 패키지 까지
+	// ~ (default) 	: 같은 패키지 까지
 	// - private 	: 현재 클래스 에서만
 	
 	public 	   int v1 = 10;
