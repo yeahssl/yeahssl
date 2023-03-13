@@ -51,7 +51,7 @@ public class IOService {
 			
 			
 			// c:\tools\eclipse\ [절대 경로 : 절대적인 기준점을 기준으로 경로 작성]
-			// byte/byteTest.txt [상대 경로: 현재위치를 기준으로 경로 작성 ]
+			// byte/byteTest.txt [상대 경로 : 현재위치를 기준으로 경로 작성 ]
 			
 //			fos = new FileOutputStream("경로");
 			// -> 프로그램 -> 지정된 경로로 파일을 내보냄(출력)
@@ -400,34 +400,3 @@ public class IOService {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
