@@ -46,7 +46,7 @@ WHERE ENTRANCE_DATE  <= '1999-12-31';
 
 -- 9. 학번이 A517178인 한아름 학생의 학점 총 평점을 구하는 SQL 문을 작성하시오. 단, 이때 출력 화면의 헤더는 
 --    "평점"이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 한자리까지만 표시한다.
-SELECT ROUND(AVG(POINT),1)
+SELECT ROUND(AVG(POINT),1) 평점
 FROM TB_GRADE 
 WHERE STUDENT_NO IN 'A517178';
 
@@ -75,17 +75,16 @@ GROUP BY DEPARTMENT_NO ;
 
 -- 14. 춘 대학교에 다니는 동명이인 학생들의 이름을 찾고자 한다. 어떤 SQL문장을 사용하면 가능하겠는가?
 SELECT STUDENT_NAME, COUNT(*) 
-FROM TB_STUDENT TB
-JOIN 
-GROUP BY STUDENT_NAME;
+FROM TB_STUDENT 
+GROUP BY STUDENT_NAME
+HAVING COUNT(*)> 1 ;
 
-
-
-
-
-
-
-
-
+-- 15. 학번이 A112113인 김고운 학생의 년도, 학기 별 평점과 년도 별 누적 평점, 총 평점을 구하는 SQL 문을
+--     작성하시오. (단, 평점은 소수점 1 자리까지만 반올림 하여 표시한다.)
+SELECT SUBSTR(TERM_NO,1,4) "년도", SUBSTR(TERM_NO,5,2) "학기", ROUND(AVG(POINT),1) "평점"
+FROM TB_GRADE 
+WHERE STUDENT_NO IN 'A112113'
+GROUP BY ROLLUP(SUBSTR(TERM_NO,1,4), SUBSTR(TERM_NO,5,2))
+ORDER BY 년도,학기;
 
 
