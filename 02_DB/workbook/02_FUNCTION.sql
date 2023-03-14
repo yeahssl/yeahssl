@@ -40,9 +40,47 @@ FROM DUAL;
 
 -- 8. 춘 기술대학교의 2000년도 이후 입학자들은 학번이 A로 시작하게 되어있다. 2000년도 이전 학번을 받은 
 --    학생들의 학번과 이름을 보여주는 SQL 문장을 작성하시오.
-SELECT SUDENT_NO, STUDENT_NAME
+SELECT STUDENT_NO, STUDENT_NAME
 FROM TB_STUDENT
-WHERE 
+WHERE ENTRANCE_DATE  <= '1999-12-31'; 
+
+-- 9. 학번이 A517178인 한아름 학생의 학점 총 평점을 구하는 SQL 문을 작성하시오. 단, 이때 출력 화면의 헤더는 
+--    "평점"이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 한자리까지만 표시한다.
+SELECT ROUND(AVG(POINT),1)
+FROM TB_GRADE 
+WHERE STUDENT_NO IN 'A517178';
+
+-- 10. 학과별 학생수를 구하여 "학과번호", "학생수(명)"의 형태로 헤더를 만들어 결과값이 출력되도록 하시오.
+SELECT DEPARTMENT_NO "학과번호" , CAPACITY "학생수(명)" 
+FROM TB_DEPARTMENT
+ORDER BY DEPARTMENT_NAME;
+
+-- 11. 지도 교수를 배정받지 못한 학생의 수는 몇 명 정도 되는지 알애는 SQL문을 작성하시오.
+SELECT COUNT(*) 
+FROM TB_STUDENT 
+WHERE COACH_PROFESSOR_NO IS NULL;
+
+-- 12. 학번이 A112113인 김고운 학생의 년도 별 평점을 구하는 SQL 문을 작성하시오. 단, 이때 출력 화면의 헤더는
+-- "년도", "년도 별 평점" 이라고 찍히게 하고, 점수는 반올림하여 소수점 이하 한 자리까지만 표시한다.
+SELECT SUBSTR(TERM_NO,1,4) "년도", ROUND(AVG(POINT),1) "년도 별 평점"
+FROM TB_GRADE 
+WHERE STUDENT_NO IN 'A112113'
+GROUP BY TERM_NO;
+
+-- 13. 학과 별 휴학생 수를 파악하고자 한다. 학과 번호와 휴학생 수를 표시하는 SQL 문장을 작성하시오.
+SELECT DISTINCT DEPARTMENT_NO "학과코드명", COUNT(*) "휴학생 수"
+FROM TB_STUDENT 
+WHERE ABSENCE_YN IN 'Y'
+GROUP BY DEPARTMENT_NO ;
+
+-- 14. 춘 대학교에 다니는 동명이인 학생들의 이름을 찾고자 한다. 어떤 SQL문장을 사용하면 가능하겠는가?
+SELECT STUDENT_NAME, COUNT(*) 
+FROM TB_STUDENT TB
+JOIN 
+GROUP BY STUDENT_NAME;
+
+
+
 
 
 
