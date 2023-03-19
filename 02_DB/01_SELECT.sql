@@ -301,7 +301,7 @@ WHERE EMAIL LIKE '_____@%';
 -- 사번, 이름, 이메일 조회
 
 SELECT EMP_ID , EMP_NAME , EMAIL 
-FROM EMPLOYEE
+FROM EMPLOYEE;
 --WHERE EMAIL LIKE '____%;
 
 --> 문제점 : 와일드 카드 문자(_)와 패턴에 사용된 일반 문자가
@@ -334,7 +334,7 @@ WHERE SALARY  >= '3000000';
 -- '3000000' : CHAR
 
 ------------------------------------------------------
-/* ODER BY 절
+/* ORDER BY 절
  * 
  * - SELECT문의 조회 결과(RESULT SET)를 정렬할 때 사용하는 구문
  * 
