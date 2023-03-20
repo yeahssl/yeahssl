@@ -168,7 +168,7 @@ SELECT  ADD_MONTHS(SYSDATE, -1), SYSDATE , ADD_MONTHS(SYSDATE,1)
 FROM DUAL;
 
 -- LAST_DAY(날짜) : 해당 월의 마지막 날짜를 반환
-SELECT LAST_DAY(SYSDATE), LAST_DAY('2023/04/01') +1 
+SELECT LAST_DAY(SYSDATE), LAST_DAY('2023/04/01') +1 --> 다음 달 1 일
 FROM DUAL;
 
 ---------------------------------------------------------------
