@@ -236,7 +236,7 @@ SELECT SEQ_TEST_NO.NEXTVAL FROM DUAL; -- 120
 
 SELECT SEQ_TEST_NO.CURRVAL FROM DUAL; -- 120
 
--- TB_TEST에 갑 삽입
+-- TB_TEST에 값 삽입
 INSERT INTO TB_TEST 
 VALUES(SEQ_TEST_NO.NEXTVAL, '홍길동' || SEQ_TEST_NO.CURRVAL);
 
@@ -318,7 +318,6 @@ DROP VIEW V_DCOPY2; -- VIEW 삭제
 DROP SEQUENCE SEQ_TEST_NO; -- SEQUENCE 삭제
 -- 시퀀스는 START WITH를 변경하고 싶을 때 삭제 후 다시 생성해야 한다.
 
-
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
@@ -341,7 +340,6 @@ DROP SEQUENCE SEQ_TEST_NO; -- SEQUENCE 삭제
  * - 인덱스도 하나의 객체이다 보니 별도 저장공간이 필요(메모리 소비)
  * 
  * - 인덱스 생성 시간이 필요함.
-    
     
     [작성법]
  *  CREATE [UNIQUE] INDEX 인덱스명
@@ -412,13 +410,4 @@ WHERE TEST_ID = 'TEST500000'; -- 22
 
 -- 테스트용 테이블 삭제
 DROP TABLE TB_INDEX_TEST;
-
-
-
-
-
-
-
-
-
 

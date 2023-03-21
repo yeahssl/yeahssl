@@ -6,7 +6,7 @@ package edu.kh.jdbc.model.dto;
 public class Employee {
 	
 	   private int empId;       // 사원 번호(사번)
-	   private String empName; // 사원 이름
+	   private String empName;  // 사원 이름
 	   private String empNo;    // 주민등록번호
 	   private String email;    // 이메일
 	   private String phone;    // 전화번호
@@ -25,10 +25,6 @@ public class Employee {
 		   
 	   }
 	   
-	   
-	   
-
-	   
 	 public Employee(int empId, String empName, String phone, String departmentTitle, String jobName) {
 		super();
 		this.empId = empId;
@@ -39,6 +35,25 @@ public class Employee {
 	}
 
 	 
+	public Employee(String empName, String empNo, String email, String phone, int salary, String deptCode,
+			String jobCode, String salLevel, double bonus, int managerId) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.deptCode = deptCode;
+		this.jobCode = jobCode;
+		this.salLevel = salLevel;
+		this.bonus = bonus;
+		this.managerId = managerId;
+	}
+
+
+
+
+
 	// getter/setter   
 	   
 	public int getEmpId() {
