@@ -59,6 +59,28 @@ public class EmpService {
 		
 		return emp;
 	}
+
+	/** 사원 정보 삽입 서비스
+	 * @param emp
+	 * @return result
+	 * @throws SQLException
+	 */
+	public int addEmp(Emp emp) throws SQLException {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.addEmp(conn,emp);
+		
+		if(result > 0)
+			commit(conn);
+		
+		else
+			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
 }
 
 

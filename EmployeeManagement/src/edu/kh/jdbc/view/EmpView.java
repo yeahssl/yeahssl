@@ -106,7 +106,7 @@ public class EmpView {
 				case 1: selectAll(); break;
 				case 2: selectRetire(); break;
 				case 3: selectOne(); break;
-				case 4:  break;
+				case 4: addEmp(); break;
 				case 5:  break;
 				case 6:  break;
 				case 7:  break;
@@ -200,7 +200,6 @@ public class EmpView {
 		int input = sc.nextInt();
 		sc.nextLine();
 		
-	
 		
 		try {
 		
@@ -211,29 +210,80 @@ public class EmpView {
 			return;
 		}	
 		
-		
 		System.out.printf("%d / %s/ %s / %s / %d / %s / %s / %s / %s",
 				emp.getEmpId(), emp.getEmpName(), emp.getDepartmentTitle(),
 				emp.getJobName(), emp.getSalary(),emp.getPhone(),emp.getEmail(),
 				emp.getHireDate(), emp.getEntYN() );
-		
 			
 		}catch (SQLException e) {
+			System.out.println("\n[사번으로 사원 조회 중 예외 발생]\n");
 			e.printStackTrace();
 			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
-	
+	private void addEmp() {
+		// 사번(EMP_ID) -> SEQ_EMP_ID SEQUENCE 사용
+		System.out.println("\n------------------- 사원 정보 추가 -------------------\n");
+		
+		System.out.print("이름 : ");
+	      String empName = sc.next();
+	      
+	      System.out.print("주민등록번호 : ");
+	      String empNo = sc.next();
+	      
+	      System.out.print("이메일 : ");
+	      String email = sc.next();
+	      
+	      System.out.print("전화번호(-제외) : ");
+	      String phone = sc.next();
+	      
+	      System.out.print("부서코드(D1~D9) : ");
+	      String deptCode = sc.next();
+	      
+	      System.out.print("직급코드(J1~J7) : ");
+	      String jobCode = sc.next();
+	      
+	      System.out.print("급여등급(S1~S6) : ");
+	      String salLevel = sc.next();
+	      
+	      System.out.print("급여 : ");
+	      int salary = sc.nextInt();
+	      
+	      System.out.print("보너스 : ");
+	      double bonus = sc.nextDouble();
+	      
+	      System.out.print("사수번호 : ");
+	      int managerId = sc.nextInt();
+	      
+	      sc.nextLine(); // 입력 버퍼에 남아있는 개행문자 제거
+	      
+	      Emp emp = new Emp(empName, empNo, 
+	    		  email, phone, salary, deptCode, jobCode, salLevel, 
+	    		  bonus, managerId);
+		
+		
+	      try {
+	    	  int result = service.addEmp(emp);
+	    	  
+	    	  if(result > 0) {
+	    		  System.out.println("[삽입 성공]");
+	    	  }else {
+	    		  System.out.println("[삽입 실패]");
+	    	  }
+	    	  
+	    	  
+	      } catch (SQLException e) {
+	    	  System.out.println("\n[사원 정보 삽입 중 예외 발생]\n");
+	    	  e.printStackTrace();
+	    	  
+	    	  
+	      }
+	      
+	      
+	      
+	      
+	}
 	
 	
 	

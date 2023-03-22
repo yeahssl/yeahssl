@@ -68,8 +68,8 @@ public class EmpDAO {
 			
 			// 4.JDBC 객체 자원 반환 ( conn 제외 )
 			
-			close(stmt);
 			close(rs);
+			close(stmt);
 			
 		}
 		
@@ -113,8 +113,8 @@ public class EmpDAO {
 			
 		} finally {
 			
-			close(stmt);
 			close(rs);
+			close(stmt);
 		}
 		
 		return empList;
@@ -150,16 +150,11 @@ public class EmpDAO {
 				
 				emp = new Emp(empId,empName,departmentTitle,jobName,salary,phone,
 						email, hireDate, entYn);
-				
-				
-				
 			} 
-			
-			
-			
 		} finally {
 			
-			
+			close(rs);
+			close(stmt);
 			
 			
 		}
@@ -168,6 +163,48 @@ public class EmpDAO {
 		
 		
 		return emp;
+	}
+
+
+	/** 사원 정보를 삽입하는 SQL 수행 후 결과 행 개수 반환하는 메서드
+	 * @param conn
+	 * @param emp
+	 * @return result
+	 * @throws SQLException
+	 */
+	public int addEmp(Connection conn, Emp emp) throws SQLException {
+		
+		int result = 0;
+		
+		try {
+		
+		String sql = "INSERT INTO EMPLOYEE VALUES(SEQ_EMP_ID.NEXTVAL,"
+				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, NULL, 'N')";
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, emp.getEmpName());
+		pstmt.setString(2, emp.getEmpNo());
+		pstmt.setString(3, emp.getEmail());
+		pstmt.setString(4, emp.getPhone());
+		pstmt.setString(5, emp.getDeptCode());
+		pstmt.setString(6, emp.getJobCode());
+		pstmt.setString(7, emp.getSalLevel());
+		pstmt.setInt(8, emp.getSalary());
+		pstmt.setDouble(9, emp.getBonus());
+		pstmt.setInt(10, emp.getManagerId());
+		
+		
+		result = pstmt.executeUpdate();
+		
+		
+		} finally {
+			
+			close(pstmt);
+			
+		} 
+		return result;
+	
 	}
 }
 

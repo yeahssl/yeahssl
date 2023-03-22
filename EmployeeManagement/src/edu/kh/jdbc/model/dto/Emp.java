@@ -52,6 +52,38 @@ public class Emp {
 
 
 
+
+	public Emp(int empId, String empName, String departmentTitle, String jobName, int salary, String phone,
+			String email, Date hireDate, String entYn) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.hireDate = hireDate;
+		this.entYN = entYN;
+		this.departmentTitle = departmentTitle;
+		this.jobName = jobName;
+	}
+
+
+	public Emp(String empName, String empNo, String email, String phone, int salary, String deptCode, String jobCode,
+			String salLevel, double bonus, int managerId) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.deptCode = deptCode;
+		this.jobCode = jobCode;
+		this.salLevel = salLevel;
+		this.bonus = bonus;
+		this.managerId = managerId;
+	}
+
+
 	public int getEmpId() {
 		return empId;
 	}
@@ -59,6 +91,7 @@ public class Emp {
 	public void setEmpId(int empId) {
 		this.empId = empId;
 	}
+
 
 	public String getEmpName() {
 		return empName;
