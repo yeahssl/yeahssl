@@ -93,6 +93,12 @@ public class Emp {
 	}
 
 
+	public Emp(int empId) {
+		super();
+		this.empId = empId;
+	}
+
+
 	public int getEmpId() {
 		return empId;
 	}

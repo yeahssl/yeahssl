@@ -161,20 +161,3 @@ ORDER BY BOARD_NO DESC;
 SELECT COUNT (*) FROM "COMMENT"
 WHERE BOARD_NO = 1;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

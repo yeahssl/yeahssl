@@ -458,29 +458,7 @@ public class EmployeeDAO {
 		// 5. 결과 반환
 		return result;
 	}
-	
-	
-	
-	
-	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

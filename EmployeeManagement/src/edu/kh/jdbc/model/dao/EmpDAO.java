@@ -244,6 +244,7 @@ public class EmpDAO {
 			pstmt.setString(2, emp.getEmail());
 			pstmt.setInt(3, emp.getSalary());
 			pstmt.setDouble(4, emp.getBonus());
+			pstmt.setInt(5, emp.getEmpId());
 			
 		
 			// 3. 수행 후 결과 반환 받아 결과 저장용 변수에 저장
@@ -270,10 +271,10 @@ public class EmpDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public Emp deleteEmp(Connection conn, int input) throws SQLException {
+	public int deleteEmp(Connection conn, int input) throws SQLException {
 
 		
-		Emp emp = null;
+		int result = 0;
 		
 		try {
 			
@@ -283,6 +284,12 @@ public class EmpDAO {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			
+			if(rs.next()) {
+				
+				int empId = rs.getInt(1);
+				
+				
+			} 
 			
 			
 		} finally {
@@ -290,13 +297,9 @@ public class EmpDAO {
 			close(rs);
 			close(stmt);
 			
-			
 		}
 		
-		
-		
-		return emp ;
-		
+		return result ;
 	}
 
 
