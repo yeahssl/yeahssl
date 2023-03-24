@@ -368,41 +368,31 @@ public class EmpView {
 		int input = sc.nextInt();
 		sc.nextLine();
 		
-		
 		try {
+			int result = service.deleteEmp(input);
 			
-			Emp emp = service.deleteEmp(input);
+			if(result == 0) {
+				System.out.println("\n====== 사번이 일치하는 사원이 없습니다. ======\n");
 				
-			if(emp == null) { // 조회 결과 없음
-				System.out.println("[사번이 일치하는 사원이 없습니다.]");
-				return;
-			}	
+			}
 			
-			System.out.print("정말 삭제 하시겠습니까?(N/Y) : ");
-			char ny = sc.next().toUpperCase().charAt(0);
-			
-			if(ny == 'N') {
+			if(result > 0) {
+				System.out.println("\n======  ======\n");
 				
-				System.out.println("[취소 되었습니다.]");
-				return;
 			}
 			
-			if(ny != 'Y') {
-				System.out.println("[잘못 입력 하셨습니다.]");
-				return;
-			}
 			
-			if(ny == 'Y') {
-				System.out.println("[사원 정보가 삭제 되었습니다.]"); 
-
-			}
+			
+		} catch (Exception e) {
+			System.out.println("[사원 삭제 처리 중 예외 발생]");
+			e.printStackTrace();
+		}
 		
-			
-			}catch (SQLException e) {
-				System.out.println("\n[사번으로 사원 조회 중 예외 발생]\n");
-				e.printStackTrace(); }
+		
+		
+	}
 				
-			}
+			
 		
 	
 	/**
