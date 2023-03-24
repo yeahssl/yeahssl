@@ -276,30 +276,7 @@ public class EmpDAO {
 		
 		int result = 0;
 		
-		try {
-			
-			String sql = "DELETE FROM EMPLOYEE\r\n"
-					+ "WHERE EMP_ID = '"+input+"'";
-			
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-			if(rs.next()) {
-				
-				int empId = rs.getInt(1);
-				
-				
-			} 
-			
-			
-		} finally {
-			
-			close(rs);
-			close(stmt);
-			
-		}
 		
-		return result ;
 	}
 
 
