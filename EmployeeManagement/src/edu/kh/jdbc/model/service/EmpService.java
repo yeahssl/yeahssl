@@ -81,6 +81,17 @@ public class EmpService {
 		
 		return result;
 	}
+
+	public int deleteEmp(int input) {
+		
+		Connection conn = getConnection();
+		
+		
+		
+		
+		return 0;
+	}
+
 }
 
 

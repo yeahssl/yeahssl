@@ -206,6 +206,26 @@ public class EmpDAO {
 		return result;
 	
 	}
+
+
+	public int deleteEmp(Connection conn, int input) {
+		
+		int result = 0;
+		
+		
+		String sql = "DELETE FROM EMPLOYEE\r\n"
+				+ "WHERE EMP_ID = ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		
+	
+		
+		
+		
+		
+		return result;
+	}
 }
 
 

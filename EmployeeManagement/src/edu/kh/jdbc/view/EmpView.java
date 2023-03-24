@@ -108,7 +108,7 @@ public class EmpView {
 				case 3: selectOne(); break;
 				case 4: addEmp(); break;
 				case 5:  break;
-				case 6:  break;
+				case 6: deleteEmp(); break;
 				case 7:  break;
 				case 8:  break;
 				case 9:  break;
@@ -279,13 +279,26 @@ public class EmpView {
 	    	  
 	    	  
 	      }
-	      
-	      
-	      
-	      
 	}
 	
-	
+	private void deleteEmp() {
+		
+		System.out.println("\n======== 사번으로 사원정보 삭제 ========\n");
+		
+		System.out.print("사번 입력 : ");
+		int input = sc.nextInt();
+		sc.nextLine();
+		
+		int result = service.deleteEmp(); 
+		
+		if() {
+			
+			
+		}
+		
+		
+		
+	}
 	
 	
 	
