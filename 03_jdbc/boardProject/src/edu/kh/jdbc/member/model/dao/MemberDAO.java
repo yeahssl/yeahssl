@@ -34,8 +34,14 @@ public class MemberDAO {
 		
 	}
 
+	/** 회원 목룍 조회 SQL 수행
+	 * @param conn
+	 * @return membetList
+	 * @throws Exception
+	 */
 	public List<Member> selectMemberList(Connection conn) throws Exception{
 		
+		// 결과 저장용 변수 선언 / 객체 생성
 		List<Member> memberList = new ArrayList<>();
 		
 		try {
@@ -49,10 +55,15 @@ public class MemberDAO {
 				
 				String memberId = rs.getString("MEMBER_ID");
 				String memberName = rs.getString("MEMBER_NM");
-				String memberGender = rs.getString("성별");
+				String memberGender = rs.getString("성별"); // 컬럼명의 별칭을 정해두면 별칭으로 불러와야한다.
 				
-				Member member = new Member(memberId,memberName,memberGender);
+				// 컬럼 값을 Member 객체에 저장
+				Member member = new Member();
+				member.setMemberId(memberId);
+				member.setMemberName(memberName);
+				member.setMemberGender(memberGender);
 				
+				// Member객체를 List에 추가
 				memberList.add(member);
 			}
 			
@@ -60,7 +71,6 @@ public class MemberDAO {
 			
 			close(rs);
 			close(stmt);
-			
 		}
 		
 		return memberList;
