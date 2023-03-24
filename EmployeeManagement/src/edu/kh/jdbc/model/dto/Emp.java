@@ -84,6 +84,21 @@ public class Emp {
 	}
 
 
+	public Emp(int empId, String empName, Date hireDate, String departmentTitle) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.hireDate = hireDate;
+		this.departmentTitle = departmentTitle;
+	}
+
+
+	public Emp(int empId) {
+		super();
+		this.empId = empId;
+	}
+
+
 	public int getEmpId() {
 		return empId;
 	}

@@ -25,3 +25,12 @@ java.sql.SQLException: 실행할 SQL 문은 비어 있거나 널일 수 없음
 
 java.sql.SQLException: 부적합한 열 이름
 - rs.get자료형("컬럼명") 구문에서 "컬럼명"을 잘못 작성한 경우
+
+java.sql.SQLException: 인덱스에서 누락된 IN 또는 OUT 매개변수 : 2
+- placeholder에 값이 세팅되지 않은 경우
+
+java.lang.NullPointerException: Cannot invoke "java.sql.ResultSet.next()" because "this.rs" is null
+rs 객체가 존재하지 않음
+
+java.io.FileNotFoundException: -sql.xml (지정된 파일을 찾을 수 없습니다)
+
