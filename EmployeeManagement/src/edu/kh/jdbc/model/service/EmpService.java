@@ -116,24 +116,23 @@ public class EmpService {
 	
 	}
 
-	/** 사번으로 사원정보 삭제 서비스
-	 * @param input
-	 * @return result
-	 * @throws SQLException
-	 */
-	public Emp deleteEmp(int input) throws SQLException{
+	public int deleteEmp(int input) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		Emp emp = dao.selectOne(conn,input);
+		int result = dao.deleteEmp(conn,input);
 		
-		commit(conn);
+		if(result > 0)
+			commit(conn);
+		
+		else
+			rollback(conn);
 		
 		close(conn);
 		
-		return emp;
+		return result;
+		
 	}
-	
 	
 	
 

@@ -266,18 +266,6 @@ public class EmpDAO {
 	}
 
 
-	/** 사원 정보 삭제 SQL 수행 후 결과 반환
-	 * @param input
-	 * @return
-	 * @throws SQLException
-	 */
-	public int deleteEmp(Connection conn, int input) throws SQLException {
-
-		
-		int result = 0;
-		
-		
-	}
 
 
 	/** 존재하는 사원인지 ,퇴직한 사원인지 조회하는 SQL 수행 후 결과 반환
@@ -434,19 +422,38 @@ public class EmpDAO {
 				
 				//Map을 List에 추가
 				mapList.add(map);
-				
 			} 
-			
 			
 		} finally {
 			
 			close(rs);
 			close(pstmt);
-			
 		}
 		
 		// 5. 결과 반환
 		return mapList;
+	}
+
+
+	public int deleteEmp(Connection conn, int input) throws SQLException {
+		
+		int result = 0;
+		
+		try {
+		String sql = "DELETE FROM EMPLOYEE\r\n"
+				+ "WHERE EMP_ID = ?";
+		
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setInt(1, input);
+		
+		} finally {
+		
+		
+		close(pstmt);
+		}
+		
+		return result;
 	}
 
 }
