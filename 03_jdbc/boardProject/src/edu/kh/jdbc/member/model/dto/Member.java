@@ -14,7 +14,7 @@ public class Member {
    public Member() {}
 
 
-public int getMemberNo() {
+   public int getMemberNo() {
       return memberNo;
    }
 

@@ -116,6 +116,11 @@ public class EmpService {
 	
 	}
 
+	/** 사원 정보 삭제 서비스
+	 * @param input
+	 * @return result
+	 * @throws Exception
+	 */
 	public int deleteEmp(int input) throws Exception {
 		
 		Connection conn = getConnection();

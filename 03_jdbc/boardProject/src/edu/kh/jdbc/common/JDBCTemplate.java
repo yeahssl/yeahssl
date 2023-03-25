@@ -64,7 +64,7 @@ public class JDBCTemplate {
 				conn.setAutoCommit(false);
 			}
 			
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

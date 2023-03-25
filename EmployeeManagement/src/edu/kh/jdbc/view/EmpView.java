@@ -13,8 +13,6 @@ import edu.kh.jdbc.model.dto.Emp;
 import edu.kh.jdbc.model.service.EmpService;
 
 public class EmpView {
-	
-	
   
 	private Scanner sc = new Scanner(System.in);
 	
@@ -373,27 +371,32 @@ public class EmpView {
 			
 			if(result == 0) {
 				System.out.println("\n====== 사번이 일치하는 사원이 없습니다. ======\n");
-				
 			}
-			
 			if(result > 0) {
-				System.out.println("\n======  ======\n");
+				System.out.print("정말 삭제 하시겠습니까? (y/n) : ");
+				char ch = sc.next().toLowerCase().charAt(0);
+
+				if(ch == 'n') {
+					
+					System.out.println("[취소 되었습니다.]");
+					return;
+				}
 				
+				if(ch != 'y') {
+					System.out.println("[잘못 입력 하셨습니다.]");
+					return;
+				}
+				
+				service.retireEmployee(input);
+				
+				System.out.println("[삭제 되었습니다.]");	
 			}
-			
-			
 			
 		} catch (Exception e) {
 			System.out.println("[사원 삭제 처리 중 예외 발생]");
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
-				
-			
-		
 	
 	/**
 	 * 퇴직 처리
@@ -475,7 +478,6 @@ public class EmpView {
 			e.printStackTrace();
 		}
 		
-		
 	}
 	
 	/**
@@ -521,7 +523,7 @@ public class EmpView {
 			for(Map<String, Object> map : mapList) {
 				
 //				System.out.printf("%s / %d / %d\n",
-//						map.get("deptTitle"), map.get("count"), map.get("avg"));
+//				map.get("deptTitle"), map.get("count"), map.get("avg"));
 //				
 				Set<String> set = map.keySet(); // Map에서 key만 얻어와 받환
 								// -> deptTitle, count, avg 순서
@@ -538,9 +540,6 @@ public class EmpView {
 		}
 	}
 }
-
-
-
 
 
 

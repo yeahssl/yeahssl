@@ -187,7 +187,7 @@ public class EmpDAO {
 		
 		try {
 		
-		String sql = "INSERT INTO EMPLOYEE VALUES(SEQ_EMP_ID.NEXTVAL,"
+		String sql = "INSERT INTO EMPLOYEE VALUES(EMP_ID.NEXTVAL,"
 				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, NULL, 'N')";
 		
 		pstmt = conn.prepareStatement(sql);
@@ -435,6 +435,12 @@ public class EmpDAO {
 	}
 
 
+	/** 사원정보 삭제
+	 * @param conn
+	 * @param input
+	 * @return result
+	 * @throws SQLException
+	 */
 	public int deleteEmp(Connection conn, int input) throws SQLException {
 		
 		int result = 0;
@@ -446,6 +452,7 @@ public class EmpDAO {
 		pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setInt(1, input);
+		result = pstmt.executeUpdate();
 		
 		} finally {
 		
