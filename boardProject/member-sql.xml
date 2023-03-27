@@ -20,6 +20,20 @@
    WHERE MEMBER_NO = ?
    </entry>
    
+   <!-- 비밀번호 변경 -->
+   <entry key = "updatePassword">
+   UPDATE "MEMBER"
+   SET MEMBER_PW = ?
+   WHERE MEMBER_PW = ?
+   AND MEMBER_NO = ?
+   </entry>
+   
+   <!-- 회원 탈퇴 -->
+   <entry key = "unRegisterMember">
+   DELETE FROM "MEMBER"
+   WHERE MEMBER_NO = ?
+   </entry>
+   
 </properties>
 
 

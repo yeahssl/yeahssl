@@ -194,7 +194,13 @@ SELECT * FROM "MEMBER";
 
 -- 회원 비밀번호 변경
 UPDATE "MEMBER"
-SET MEMBER_PW = ?
+SET MEMBER_PW = ? -- 새 비밀번호
+WHERE MEMBER_PW = ? -- 현재 비밀번호
+AND MEMBER_NO = ? -- 누구?
+;
+
+-- 회원 탈퇴
+DELETE FROM "MEMBER"
 WHERE MEMBER_NO = ?
 ;
 
