@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import edu.kh.jdbc.common.Session;
 import edu.kh.jdbc.member.model.dto.Member;
 
 public class MemberDAO {
@@ -75,7 +76,87 @@ public class MemberDAO {
 		
 		return memberList;
 	}
+
+	/** 회원 정보 수정 SQL문 수행
+	 * @param conn
+	 * @param memberName
+	 * @param memberGender
+	 * @param memberNo
+	 * @return return
+	 * @throws Exception
+	 */
+	public int updateMember(Connection conn, String memberName, String memberGender, int memberNo)  throws Exception{
+		
+		// 1. 결과 저장용 변수 선언
+		int result = 0;
+		
+		try {
+		
+			// 2. SQL 작성, 수행
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberGender);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		
+			
+		} finally {
+			// 3. JDBC 객체 자원 반환
+			close(pstmt);
+			
+		}
+		
+		// 4. 결과 반환
+		return result;
+	}
+
+	/** 비밀번호 변경 SQL 수행
+	 * @param conn
+	 * @param memberPw
+	 * @param memberNewPw
+	 * @param memberNo
+	 * @return return
+	 * @throws Exception
+	 */
+	public int updatePassword(Connection conn, String memberPw, String memberNewPw, int memberNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = "";
+			
+			
+		} finally {
+			
+			
+			
+			
+		}
+		 
+		
+		
+		
+		
+		return result;
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

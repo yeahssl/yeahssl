@@ -4,6 +4,8 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 import edu.kh.jdbc.common.Session;
 import edu.kh.jdbc.member.model.dto.Member;
 import edu.kh.jdbc.member.model.service.MemberService;
@@ -47,8 +49,8 @@ public class MemberView {
 				
 				case 1 : selectMyInfo(); break;
 				case 2 : selectMemberList(); break;
-				case 3 : break;
-				case 4 : break;
+				case 3 : updateMember(); break;
+				case 4 : updatePassword(); break;
 				case 5 : break;
 				
 				case 9 : 
@@ -129,14 +131,127 @@ public class MemberView {
 			e.printStackTrace();
 		}
 		
-		
 	}
 	
+	
+	/**
+	 * 내 정보 수정
+	 */
+	private void updateMember() {
+		System.out.println("\n====== 내 정보 수정 ======\n");
+		// 이름(VARCHAR) / 성별(CHAR, M/F) -> 대소문자 구분(대문자만 입력)
+		System.out.print("수정할 이름 : ");
+		String memberName = sc.next();
+		
+		
+		String memberGender = null;
+		while(true) {
+		
+			System.out.print("수정할 성별(M/F) : ");
+			// Java char : 문자 1개 
+			// DB CHAR : 고정 길이 문자열 (== Java String)
+			memberGender = sc.next().toUpperCase();
+			
+			if(memberGender.equals("M") || memberGender.equals("F")) {
+				break;
+		} 
+		
+			System.out.println("[M 또는 F를 입력해 주세요]");
+		
+		}
+		
+		try {
+			int result = service.updateMember(memberName, memberGender, Session.loginMember.getMemberNo());
+			// Session.loginMember.getMemberNo() : 로그인한 회원의 번호
+			// Service 호출 -> DAO 호출 -> UPDATE 수행 -> 결과 행(int)
+			
+			if(result > 0) {
+				
+				System.out.println("\n===== 수정 성공 =====\n");
+				
+				// Service를 호출해서 DB만 수정
+				// -> DB와 Java 프로그램 데이터 동기화
+				// Session에 저장된 로그인 정보를 불러와 사용하기 때문에 Session도 함께 수정해 주어야 한다.
+				Session.loginMember.setMemberName(memberName);
+				Session.loginMember.setMemberGender(memberGender); 
+			
+			} else {
+				
+				System.out.println("\n===== 수정 실패 =====\n");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("\n******* 회원 정보 수정 중 예외 발생 ******\n");
+			
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 비밀번호 변경
+	 */
+	private void updatePassword() {
+		System.out.println("\n====== 비밀번호 변경 ======\n");
+		
+		// 현재 비밀번호 입력
+		System.out.print("현재 비밀번호 입력 : ");
+		String memberPw = sc.next();
+		
+
+		
+		String memberNewPw = null;
+		String pwConfirm = null;
+		while(true) {
+		
+		// 새 비밀번호 입력
+			
+		
+		// 새 비밀번호 확인 입력
+		
+		// 같을 때 까지 무한 반복
+			
+			if(memberPw.equals(Session.loginMember.getMemberPw())) {
+				System.out.print("새 비밀번호 입력 : ");
+				memberNewPw = sc.next();
+				
+				System.out.print("새 비밀번호 확인 : ");
+				pwConfirm = sc.next();
+				
+				
+				if(memberNewPw.equals(pwConfirm)) {
+					
+					break;
+				}
+			
+			// 아닐 때
+		}
+		
+		try {
+			int result = service.updatePassword(memberPw, memberNewPw, Session.loginMember.getMemberNo());
+		
+		// 서비스 호출(현재 비밀번호, 새 비밀번호, 로그인한 회원 번호)
+		// -> 성공하면 1/ 실패하면 0 -> int형 변수
+		
+		if(result > 0) { // 1인 경우
+			System.out.println("\n=== 비밀번호가 변경되었습니다 ===\n");
+			
+		} else { // 0인 경우 
+			System.out.println("\n=== 현재 비밀번호가 일치하지 않습니다 ===\n");
+			
+		}
+
+		}catch (Exception e) {
+			System.out.println("\n*** 비밀번호 변경 중 예외 발생 ***\n");
+			e.printStackTrace();
+			
+	}
+	
+	
+	}
 	
 	
 
 }
-
 
 
 

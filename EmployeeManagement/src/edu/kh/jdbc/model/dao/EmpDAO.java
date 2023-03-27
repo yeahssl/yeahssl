@@ -187,7 +187,7 @@ public class EmpDAO {
 		
 		try {
 		
-		String sql = "INSERT INTO EMPLOYEE VALUES(EMP_ID.NEXTVAL,"
+		String sql = "INSERT INTO EMPLOYEE VALUES(SEQ_EMP_ID.NEXTVAL,"
 				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, NULL, 'N')";
 		
 		pstmt = conn.prepareStatement(sql);

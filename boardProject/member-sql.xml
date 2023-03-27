@@ -12,6 +12,14 @@
    ORDER BY MEMBER_NO DESC
    </entry>
    
+   <!-- 회원 정보 수정 -->
+   <entry key = "updateMember">
+   UPDATE "MEMBER"
+   SET MEMBER_NM = ?,
+   MEMBER_GENDER = ?
+   WHERE MEMBER_NO = ?
+   </entry>
+   
 </properties>
 
 
