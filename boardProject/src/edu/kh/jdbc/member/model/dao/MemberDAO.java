@@ -35,7 +35,7 @@ public class MemberDAO {
 		
 	}
 
-	/** 회원 목룍 조회 SQL 수행
+	/** 회원 목록 조회 SQL 수행
 	 * @param conn
 	 * @return membetList
 	 * @throws Exception
@@ -46,7 +46,6 @@ public class MemberDAO {
 		List<Member> memberList = new ArrayList<>();
 		
 		try {
-			
 			String sql = prop.getProperty("selectMemberList");
 			
 			stmt = conn.createStatement();
@@ -67,13 +66,10 @@ public class MemberDAO {
 				// Member객체를 List에 추가
 				memberList.add(member);
 			}
-			
 		} finally {
-			
 			close(rs);
 			close(stmt);
 		}
-		
 		return memberList;
 	}
 
@@ -166,29 +162,15 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, memberNo);
+			pstmt.setString(2, memberPw);
 			
 			result = pstmt.executeUpdate();
 			
 		} finally {
-			
 			close(pstmt);
-			
 		}
-		
 		return result;
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

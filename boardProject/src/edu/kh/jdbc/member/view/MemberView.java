@@ -20,7 +20,6 @@ public class MemberView {
 	private MemberService service = new MemberService();
 	
 	
-	
 	/**
 	 * 회원 기능 메뉴
 	 */
@@ -58,7 +57,7 @@ public class MemberView {
 					break;
 				
 				case 9 : 
-					System.out.println("\n====== 메인 메뉴로 돌아갑니다 ======"); break;
+					System.out.println("\n====== 메인 메뉴로 돌아갑니다 ======\n"); break;
 				case 0 : 
 					System.out.println("\n====== 프로그램 종료 ======\n");
 					
@@ -201,8 +200,6 @@ public class MemberView {
 		System.out.print("현재 비밀번호 입력 : ");
 		String memberPw = sc.next();
 		
-
-		
 		String memberNewPw = null;
 		
 		while(true) {
@@ -237,7 +234,6 @@ public class MemberView {
 			
 		} else { // 0인 경우 
 			System.out.println("\n=== 현재 비밀번호가 일치하지 않습니다 ===\n");
-			
 		}
 
 		} catch (Exception e) {
@@ -252,23 +248,17 @@ public class MemberView {
 	 */
 	private boolean unRegisterMember() {
 		System.out.println("\n====== 회원 탈퇴 ======\n");
-		
 		System.out.print("비밀 번호 : ");
 		String memberPw = sc.next();
-		
 		String code = service.createSecurityCode();
 		System.out.printf("보안문자 입력 [%s] : " , code);
 		String input = sc.next();
 		
 		// 보안문자 일치여부 확인
-		
 		if(!input.equals(code)) { // 일치하지 않으면
 			System.out.println("\n*** 보안문자가 일치하지 않습니다 ***\n");
 			return false;
 		}
-		
-		
-		
 		while(true) {
 			
 			System.out.println("정말 탈퇴하시겠습니까?(Y/N) : ");
@@ -283,7 +273,6 @@ public class MemberView {
 			}
 			// 'Y' , 'N'이 아닌 경우
 			System.out.println("\n**** 잘못 입력하셨습니다 ****\n");
-			
 			}
 			
 		try {
@@ -295,14 +284,11 @@ public class MemberView {
 				
 				// 로그아웃
 				Session.loginMember = null;
-				
 				return true;
 				
 			} else {
 				System.out.println("\n*** 비밀번호가 일치하지 않습니다 ***\n");
-				
 			}
-			
 		} catch (Exception e) {
 			System.out.println("\n*** 회원 탈퇴 중 예외 발생 ***\n");
 			e.printStackTrace();
