@@ -250,9 +250,23 @@ COMMIT;
 
 -- 게시글 삽입
 INSERT INTO "BOARD"
-VALUES(SEQ_BOARD_NO.NEXTVAL, ?, ?, 
-		DEFAULT, DEFAULT, DEFAULT, ?)
+VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, ?)
 ; --> 성공 1, 실패 0
+
+
+-- 다음 시퀀스 번호 생성
+SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
