@@ -54,8 +54,8 @@
    
    <!-- 게시글 삽입 -->
    <entry key = "insertBoard">
-   INSERT INTO "BOARD"
-   VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, ?)
+ 	INSERT INTO "BOARD"
+	VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, ?)
    </entry>
    
 </properties>
