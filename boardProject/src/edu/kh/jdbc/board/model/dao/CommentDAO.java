@@ -107,37 +107,81 @@ public class CommentDAO {
 		return result;
 	}
 
-	/** 댓글 수정 SQL 
+	/** 게시글에 작성된 댓글 조회 SQL 수행
 	 * @param conn
 	 * @param input
-	 * @param memberNo
-	 * @return result 
+	 * @return comment
 	 * @throws Exception
 	 */
-	public int updateComment(Connection conn, int input, int memberNo) throws Exception{
+	public Comment selectComment(Connection conn, int input, int memberNo, int boardNo) throws Exception{
+		
+		Comment comment = null;
+		
+		try {
+			
+			String sql = prop.getProperty("selectComment");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, boardNo);
+			pstmt.setInt(3, input);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				int memberNo1 = rs.getInt("MEMBER_NO");
+				int boardNo1 = rs.getInt("BOARD_NO");
+				int commentNo = rs.getInt("COMMENT_NO");
+
+				comment = new Comment();
+				
+				comment.setMemberNo(memberNo1);
+				comment.setBoardNo(boardNo1);
+				comment.setCommentNo(commentNo);
+				
+			}
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return comment ;
+	}
+
+	/** 댓글 수정 SQL 수행
+	 * @param conn
+	 * @param input
+	 * @param commentContent
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateComment(Connection conn, int input, String commentContent) throws Exception {
 		
 		int result = 0;
 		
-		try { 
-			
-			String sql = prop.getProperty("updateComment");
+		try {
 		
-			pstmt = 
+			String sql = prop.getProperty("updateComment");
 			
+			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setString(1, commentContent);
+			pstmt.setInt(2, input);
 			
+			result = pstmt.executeUpdate();
 			
 		} finally {
-
 		
-		
-		
+		close(pstmt);
+			
 		}
-		
-		
 		
 		return result;
 	}
+
+	
 	
 	
 

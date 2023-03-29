@@ -6,6 +6,7 @@ import java.sql.Connection;
 
 import edu.kh.jdbc.board.model.dao.BoardDAO;
 import edu.kh.jdbc.board.model.dao.CommentDAO;
+import edu.kh.jdbc.board.model.dto.Comment;
 
 public class CommentService {
 
@@ -36,44 +37,55 @@ public class CommentService {
 	}
 
 
-
-	
-	public int updateComment(int input, int memberNo) throws Exception {
+	/** 댓글 확인 서비스
+	 * @param input
+	 * @param memberNo
+	 * @return comment
+	 * @throws Exception
+	 */
+	public Comment selectComment(int input, int memberNo, int boardNo) throws Exception{
 		
 		Connection conn = getConnection();
 		
-		int result = commentDao.updateComment(conn, input, memberNo);
+		Comment comment = commentDao.selectComment(conn, input, memberNo, boardNo);
 		
-		if(result > 0) commit(conn);
-		else 		   rollback(conn);
+		if(comment.getMemberNo() == memberNo) {
+			
+			
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
 		
-		close(conn);
-		
-		return result;
-		
-
+		return comment;
 	}
-	
-	/** 댓글 수정
+
+
+	/** 댓글 수정 서비스
 	 * @param input
-	 * @param memberNo
+	 * @param string
 	 * @return result
 	 * @throws Exception
 	 */
-
-	public int updateComment(int input, String  commentContent, int memberNo) {
+	public int updateComment(int input, String commentContent) throws Exception {
 		
 		
 		Connection conn = getConnection();
 		
-		int result = commentDao.updateComment(conn, commentContent, memberNo);
+		int result = commentDao.updateComment(conn, input, commentContent);
 		
 		if(result > 0) commit(conn);
-		else 		   rollback(conn);
+		else		   rollback(conn);
 		
-		close(conn);
+		close (conn);
 		
 		return result;
 	}
+
+
+
+	
+
+	
 
 }
