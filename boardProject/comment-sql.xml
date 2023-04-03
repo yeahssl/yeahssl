@@ -25,19 +25,37 @@
    <!-- 게시글에 해당하는 댓글 확인 -->
    
    <entry key = "selectComment">
-  SELECT COMMENT_NO
-FROM "COMMENT"
-WHERE MEMBER_NO = ?
-AND BOARD_NO = ?
-AND COMMENT_NO = ?
+	  SELECT COMMENT_NO
+	  FROM "COMMENT"
+	  WHERE MEMBER_NO = ?
+	  AND BOARD_NO = ?
+	  AND COMMENT_NO = ?
    </entry>
    
    <!-- 댓글 수정 -->
    <entry key = "updateComment">
-   UPDATE "COMMENT"
+    UPDATE "COMMENT"
 	SET COMMENT_CONTENT = ?
 	WHERE COMMENT_NO = ?
    </entry>
+   
+   <!-- 일치 여부 -->
+   <entry key = "check">
+   SELECT COMMENT_NO
+	FROM "COMMENT"
+	WHERE BOARD_NO = ?
+	AND MEMBER_NO = ?
+	AND COMMENT_NO = ?
+   </entry>
+   
+   <!-- 댓글 삭제 -->
+   <entry key = "deleteComment">
+   UPDATE "COMMENT"
+	SET DELETE_FL = 'Y'
+	WHERE COMMENT_NO = ?
+   </entry>
+   
+   
    
 </properties>
 

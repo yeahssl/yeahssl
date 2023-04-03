@@ -49,14 +49,6 @@ public class CommentService {
 		
 		Comment comment = commentDao.selectComment(conn, input, memberNo, boardNo);
 		
-		if(comment.getMemberNo() == memberNo) {
-			
-			
-			commit(conn);
-		} else {
-			rollback(conn);
-		}
-		
 		return comment;
 	}
 
@@ -78,6 +70,41 @@ public class CommentService {
 		else		   rollback(conn);
 		
 		close (conn);
+		
+		return result;
+	}
+
+
+	/** 게시글, 댓글, 회원 넘버 일치 확인 
+	 * @param input
+	 * @param boardNo
+	 * @param memberNo
+	 * @return check
+	 * @throws Exception
+	 */
+	public int check(int input, int boardNo, int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int check = commentDao.check(conn, input, boardNo, memberNo);
+		
+		return check;
+	}
+
+
+	/** 댓글 삭제 서비스
+	 * @param input
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteComment(int input) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int result = commentDao.deleteComment(conn, input);
+		
+		if(result > 0)	commit(conn);
+		else			rollback(conn);
 		
 		return result;
 	}
