@@ -1,0 +1,56 @@
+/* color 속성 */
+#colorList > li{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#colorList > li:nth-child(1){color: salmon;}
+#colorList > li:nth-child(2){color: rgb(235, 152, 80);}
+#colorList > li:nth-child(3){color: rgb(29, 228, 115);}
+#colorList > li:nth-child(4){color: #abc;}
+#colorList > li:nth-child(5){color: #5918f5;}
+#colorList > li:nth-child(6){color: hsl(360, 100%, 50%);}
+#colorList > li:nth-child(7){color: hsla(360, 100%, 50%, 15%);}
+
+#decorationList > li:nth-child(1){text-decoration: overline;}
+#decorationList > li:nth-child(2){text-decoration: line-through;}
+#decorationList > li:nth-child(3){text-decoration: underline;}
+#decorationList > li:nth-child(4) > a{text-decoration: none;}
+
+/* text-align */
+#alignTest>p:nth-child(1){text-align: left;}
+#alignTest>p:nth-child(2){text-align: right;}
+#alignTest>p:nth-child(3){text-align: center;}
+#alignTest>p:nth-child(4){text-align: justify;}
+
+/* line-height */
+#lineHeight{line-height: px;}
+
+/* letterSpacing */
+#letterSpacing{letter-spacing: -3px;}
+
+/* font-family */
+#fontFamily>li:nth-child(1){font-family: '궁서';}
+#fontFamily>li:nth-child(2){font-family: '궁서체';}
+#fontFamily>li:nth-child(3){font-family: '동현체','궁서체';}
+#fontFamily>li:nth-child(4){font-family: 'Gaegu', cursive;}
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#fontFamily>li:nth-child(5){font-family: 'SBAggroB';}
+
+/* 다운 받은 폰트 적용 */
+@font-face {
+    font-family: 'Gugi';
+    src: url('Gugi-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#fontFamily>li:nth-child(6){font-family: 'Gugi';}
+
+
