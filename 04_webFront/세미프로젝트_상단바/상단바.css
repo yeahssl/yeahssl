@@ -1,0 +1,138 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    min-width: 1040px;
+    margin: auto;
+    height: 40px;
+
+    display: flex;
+    flex-direction: row;
+
+    border: 1px solid black;
+}
+
+.semi{
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: auto;
+    
+
+}
+
+
+#logo{
+    display: flex;
+    justify-content: center;
+}
+
+
+.search-area{
+    
+    
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: chartreuse;
+    
+}
+
+.search-area fieldset{
+    border: 2px solid #455ba8;
+    padding: 2px;
+    border-radius: 5px;
+    width: 50%;
+    display: flex;
+    
+    justify-content: center;
+    
+}
+
+#query{
+    border: none;
+
+    outline: 0;
+
+    font-size: 15px;
+    font-weight: lighter;
+    padding: 5px;
+
+    width: 100%;
+}
+
+.top-menu{
+    
+    display: grid;
+    grid-template-columns: auto;
+
+    background-color: cadetblue;
+}
+
+
+
+.top-menu > ul{
+
+    
+
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+
+}
+
+.top-menu li:nth-child(1){
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    padding: auto;
+    
+}
+
+.top-menu li:nth-child(2){
+    width: 100px;
+    display: flex;
+    justify-content:  center;
+    padding: auto;
+}
+
+.top-menu li:nth-child(3){  
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    padding: auto;
+}
+
+.top-menu li:nth-child(4){
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    padding: auto;
+
+}
+
+.top-menu a{
+    
+    text-decoration: none;
+    color: white;
+}
+
+.top-menu a:hover{
+    color: white;
+    background-color: #455ba8;
+    transition-duration: 0.5s;
+}
+
+

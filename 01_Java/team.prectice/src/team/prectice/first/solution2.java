@@ -15,27 +15,34 @@ public class solution2 {
 	      // [1, 2, 4, 3]
 	      for(int i : answer1) 
 	    
-	      System.out.println();
+	      System.out.print(i + " ");
 	      
+	      System.out.println();
 	      // [4, 4, 6, 2, 2, 1, 7]
 	      for(int i : answer2)
 	         System.out.print(i + " ");
 	   }
 
 	
-	    public  static int[] solution(int[][] score) {
+	    public static int[] solution(int[][] score) {
 	        int[] answer = new int[score.length];
-	       
 	        
-		    int sum = 0;
-		    double avg = 0;
+		    double[] avg = new double[score.length];
+		    
+		    int rank = 1;
 		    
 		    for(int i = 0; i < score.length; i++) {
-		    	for(int j = 0; j<score[i].length; j++) {
-		    		sum += score[i][j];
-		    		avg = sum/(score.length);
-		    		
-		    	} 
+		    	avg[i] = (score[i][0] + score[i][1]) / 2.0;
+		    } // 인덱스별 평균
+		    
+		    for(int j = 0; j < score.length; j++) {
+		    	rank=1;
+		    	for(int i = 0; i< score.length; i++) {
+		    		if(avg[j] < avg[i]) {
+		    			rank++;
+		    		}
+		    	answer[j] = rank; 
+		    	}
 		    }
 	        return answer;
 	    }
