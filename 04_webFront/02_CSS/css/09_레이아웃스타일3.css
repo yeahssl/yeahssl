@@ -2,7 +2,7 @@ div{
     border: 1px solid black;
 
     /* box-sizing : width / height의 값이 적용되는 범위를 지정하는 속성 */
-    /* contene-box : content에만 적용 */
+    /* content-box : content에만 적용 */
     /* border-box : contnet + padding + border의 합이
         width/height와 같도록 content의 크기를 자동 조절 */
 
@@ -93,7 +93,7 @@ div{
     background-color: white;
 
     border-radius: 50%; /*동그랗게 만듦*/
-    text-align: center; /* w좌우 가운데*/
+    text-align: center; /* 좌우 가운데*/
     line-height: 37px; /* 장평 */
 
 }
