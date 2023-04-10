@@ -11,7 +11,7 @@ public class solution2 {
 	      int[] answer2 = solution(score2);
 	      
 	      
-	    
+	     
 	      // [1, 2, 4, 3]
 	      for(int i : answer1) 
 	    
@@ -22,7 +22,6 @@ public class solution2 {
 	      for(int i : answer2)
 	         System.out.print(i + " ");
 	   }
-
 	
 	    public static int[] solution(int[][] score) {
 	        int[] answer = new int[score.length];
@@ -31,12 +30,18 @@ public class solution2 {
 		    
 		    int rank = 1;
 		    
+		    // 평균값 계산 후 avg 배열에 담기
 		    for(int i = 0; i < score.length; i++) {
 		    	avg[i] = (score[i][0] + score[i][1]) / 2.0;
+		    	//System.out.println("평균값" + avg[i]);
 		    } // 인덱스별 평균
+		    
+		    System.out.println("--------------------");
 		    
 		    for(int j = 0; j < score.length; j++) {
 		    	rank=1;
+		    	//System.out.println("이거는? = " + avg[j]);
+		    	
 		    	for(int i = 0; i< score.length; i++) {
 		    		if(avg[j] < avg[i]) {
 		    			rank++;
