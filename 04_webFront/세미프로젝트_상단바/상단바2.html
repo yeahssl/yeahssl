@@ -35,33 +35,46 @@
 
             <div class="top-menu">
                 <ul class="menu">
+
                     <li>
                         <a href="#">
-                            <img src="/images/images/home-normal.png">
+                        <img src="/images/images/home-normal.png">
                         </a>
+                        
                     </li>
                     
                     <li>
                         <a href="#">
-                            <img src="/images/images/friends.png" >
+                            <button type="button" id="openBtn1">
+                                <img src="/images/images/friends.png">
+                            </button>
                         </a>
                     </li>
 
                     <li>
                         <a href="#">
-                            <img src="/images/images/video.png">
+                            <button type="button" id="openBtn2">
+                                <img src="/images/images/bell.png">
+
+                            </button>
                         </a>
                     </li>
 
                     <li>
                         <a href="#">
-                            <img src="/images/images/group.png">
+                            <button type="button" id="openBtn3">
+                                <img src="/images/images/user-deafult.png">
+
+                            </button>
                         </a>
                     </li>
                     
                     <li>
                         <a href="#">
-                            <img src="/images/images/game.png">
+                            <button type class="btn4" id="openBtn4">
+                                <img src="/images/images/menu.png">
+                            
+                            </button>
                         </a>
                     </li>
                     
@@ -69,20 +82,40 @@
 
             </div>
 
-            <div class="my-menu">
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-
-
-            </div>
-            
+            <script>
+                // 자바스크립트 작성 영역
+        
+                // 열기 버튼
+                const openBtn1 = document.getElementById('openBtn1');
+                const openBtn2 = document.getElementById('openBtn2');
+                const openBtn3 = document.getElementById('openBtn3');
+                const openBtn4 = document.getElementById('openBtn4');
+                
+                // 닫기 버튼
+                const closeBtn = document.getElementById('closeBtn');
+        
+                // nav 요소
+                const nav = document.querySelector('nav');
+        
+                // 열기 버튼을 누르면 nav의 dispaly가 flex로 변경
+                openBtn.addEventListener("click", () => {
+                    nav.style.display = "flex";
+                } );
+        
+                // 닫기 버튼을 누르면 nav의 display가 none으로 변경
+                closeBtn.addEventListener("click", function(){
+                    nav.style.display = "none";
+                });
+        
+                // 화면 너비가 1024px을 초과했을 때 nav의 style 속성 제거 
+                window.addEventListener("resize", () => {
+                    if(window.innerWidth > 1024){
+                        nav.removeAttribute("style");
+                    }
+                });
+            </script>
 
     </header>
-
     
 </body>
 </html>

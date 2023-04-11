@@ -1,10 +1,11 @@
-@media screen {
-    
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; 
+    
     margin: 0;
     padding: 0;
 }
+    
+
 
 .container,.home-logo,.search-area,.top-menu{
     border: 1px, solid black;
@@ -13,26 +14,27 @@
 
 .container {
     /* background-color: royalblue; */
-    border: 1px solid black;
-    min-width: 1040;
-    height: 50px;
+    border: 1px solid black;;
+    height: 56px;
     display: grid;
-    grid-template-columns: 0.2fr 0.8fr 1.5fr 0.5fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: sticky ;
+    background-color: white;
 
 }
 
 
 /* 홈 로고 영역 */
 .home-logo {
-    height: 50px;
+    height: 56px;
     display: grid;
 }
 
 .home-logo>a{
-    height: 50px;
+    height: 56px;
     align-items: center;
     padding: 5px;
-    padding-left: 25%;
+    padding-left: 100px;
 }
 
 .home-logo>a>img{
@@ -45,21 +47,24 @@
 /* 검색창 영역 */
 
 .search-area{
+    display: flex;
+    justify-content: center;
     padding: 6px;
+    padding-left: 103px;
     /* border: 1px solid black; */
     height: 50px;
-    width: 300px
+    width: 1120px;
     
 
 }
 
 .search-area #searchBox{
     border: 1px solid #455ba8;
-    border-radius: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    height: 35px;
-
+    border-radius: 20px;
+    /* padding-left: 5px;
+    padding-right: 5px; */
+    height: 41px;
+    width: 450px;
     display: grid;
     align-items: center;
     
@@ -95,54 +100,67 @@ input{
 /* 상단 메뉴 탭 영역 */
 
 
-
 .top-menu>ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding-left: 100px;
-
-    
+    padding-right: 25px;
 }
 
 .menu{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 49px;
-    column-gap: 50px;
+    height: 56px;
+    column-gap: 35px;
 }
 
-.top-menu>.menu>li>a:hover{
+
+a>.btn1:hover{
     height: 35px;
     padding-bottom: 5px;
     border-radius: 10px;
 
     display: inline-block;
 
-
-    background-color:#ccc;
+    background-color:lightgray;
     transition-duration: 0.5s;
 }
+
+
+#openBtn1, #openBtn2, #openBtn3, #openBtn4{
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+
+.top-menu>.menu>li:nth-child(1)>a:hover{
+    height: 35px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+
+    display: inline-block;
+
+    background-color:lightgray;
+    transition-duration: 0.5s;
+}
+
 
 
 .top-menu>.menu>li:nth-child(1)>a>img{
     height: 35px;
     padding: 3px;
-    
-    
-    
 
 }
 
-.top-menu>.menu>li:nth-child(2)>a>img{
+.top-menu>.menu>li:nth-child(2)>a>#openBtn1>img{
     height: 35px;
     padding: 3px;
     
-
-    
 }
-.top-menu>.menu>li:nth-child(3)>a>img{
+.top-menu>.menu>li:nth-child(3)>a>#openBtn2>img{
     height: 35px;
     padding: 3px;
     
@@ -153,29 +171,17 @@ input{
     brightness(103%) 
     contrast(85%);
 }
-.top-menu>.menu>li:nth-child(4)>a>img{
+.top-menu>.menu>li:nth-child(4)>a>#openBtn3>img{
     height: 35px;
     padding: 3px;
     
-    filter: invert(34%) 
-    sepia(82%) 
-    saturate(369%) 
-    hue-rotate(178deg) 
-    brightness(103%) 
-    contrast(85%);
 }
-.top-menu>.menu>li:nth-child(5)>a>img{
+.top-menu>.menu>li:nth-child(5)>a>#openBtn4>img{
     height: 35px;
     padding: 3px;
     
-    filter: invert(34%) 
-    sepia(82%) 
-    saturate(369%) 
-    hue-rotate(178deg) 
-    brightness(103%) 
-    contrast(85%);
 }
 
 
-}
+
 
