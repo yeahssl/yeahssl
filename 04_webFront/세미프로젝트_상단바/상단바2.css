@@ -7,7 +7,7 @@
     
 
 
-.container,.home-logo,.search-area,.top-menu{
+.container{
     border: 1px, solid black;
 }
 
@@ -54,19 +54,18 @@
     /* border: 1px solid black; */
     height: 50px;
     width: 1120px;
-    
+    border-radius: 20px;
 
 }
 
 .search-area #searchBox{
     border: 1px solid #455ba8;
     border-radius: 20px;
-    /* padding-left: 5px;
-    padding-right: 5px; */
     height: 41px;
     width: 450px;
     display: grid;
     align-items: center;
+    padding: 6px;
     
 }
 
@@ -84,6 +83,7 @@
     align-items: center;
     
     padding-left: 25px;
+    border-radius: 20px;
 }
 
 #searchBtn{
@@ -95,37 +95,77 @@ input{
     background-repeat: no-repeat;
     background-position: left;
     background-size: 16px;
+    
 }
 
 /* 상단 메뉴 탭 영역 */
 
+/* 리스트 스타일을 없애기 */
 
-.top-menu>ul {
+ul li{
+    list-style: none;
+    width: 100px;
+}
+
+
+.menu > li{
+    
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+a {
+    
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+   
+}
+
+
+.menu > li > ul {
+    width:130px;
+    display:none;
+    position: absolute;
+    font-size:14px;
+    background: skyblue;
+}
+
+
+.menu > li:nth-child(3) > a{
+    justify-content: center;
+}
+
+
+.menu{
+    font:bold 16px "malgun gothic";
+    padding: 8px;
+    height:56px;
+    color:black;
+    /* line-height: 50px;  */
+    
+    text-align: center;
+}
+
+
+
+
+.menu > ul > li {
+    float:left;
+    width:140px;
+    position:relative;
+}
+
+
+
+.top-menu> ul {
     list-style: none;
     display: flex;
     flex-direction: row;
     padding-right: 25px;
 }
 
-.menu{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 56px;
-    column-gap: 35px;
-}
-
-
-a>.btn1:hover{
-    height: 35px;
-    padding-bottom: 5px;
-    border-radius: 10px;
-
-    display: inline-block;
-
-    background-color:lightgray;
-    transition-duration: 0.5s;
-}
 
 
 #openBtn1, #openBtn2, #openBtn3, #openBtn4{
@@ -136,51 +176,110 @@ a>.btn1:hover{
 }
 
 
+
+/* 상단바 아이콘 hover */
 .top-menu>.menu>li:nth-child(1)>a:hover{
-    height: 35px;
-    padding-bottom: 5px;
-    border-radius: 10px;
-
-    display: inline-block;
-
-    background-color:lightgray;
-    transition-duration: 0.5s;
+    background-color: #ccc;
+    border-radius: 5px;
 }
+.top-menu>.menu>li:nth-child(2)>a:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+#openBtn1:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+#openBtn2:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+#openBtn3:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+
+
+/* 메뉴 이미지 설정 영역 */
 
 
 
 .top-menu>.menu>li:nth-child(1)>a>img{
     height: 35px;
     padding: 3px;
-
+    
 }
-
-.top-menu>.menu>li:nth-child(2)>a>#openBtn1>img{
+.top-menu>.menu>li:nth-child(2)>a>img{
     height: 35px;
     padding: 3px;
     
 }
-.top-menu>.menu>li:nth-child(3)>a>#openBtn2>img{
+
+
+/* 열기, 닫기 버튼 영역 - 이미지 */
+#openBtn1>img{
     height: 35px;
     padding: 3px;
-    
+   
     filter: invert(34%) 
     sepia(82%) 
     saturate(369%) 
     hue-rotate(178deg) 
     brightness(103%) 
     contrast(85%);
+    cursor: pointer;
+    border: none;
 }
-.top-menu>.menu>li:nth-child(4)>a>#openBtn3>img{
+
+#openBtn2>img{
     height: 35px;
     padding: 3px;
-    
+    cursor: pointer;
+
 }
-.top-menu>.menu>li:nth-child(5)>a>#openBtn4>img{
+
+#openBtn3>img{
     height: 35px;
     padding: 3px;
-    
+    cursor: pointer;
 }
+
+
+/* nav관련 설정 : 상단바 아이콘 클릭시 */
+
+/* .nav1{ display: block !important;}
+
+.nav1 > ul{
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    flex-direction: row;
+    align-content: center;
+
+}
+.nav2 > ul{
+    background-color: white;
+    width: 500px;
+    height: 100px;
+    flex-direction: row;
+    align-content: center;
+
+}
+.nav3 > ul{
+    background-color: white;
+    width: 500px;
+    height: 100px;
+    flex-direction: row;
+    align-content: center;
+
+} */
+
+
+
+
+
 
 
 
