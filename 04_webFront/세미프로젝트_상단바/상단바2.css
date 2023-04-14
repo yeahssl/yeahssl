@@ -132,7 +132,6 @@ a {
     background: skyblue;
 }
 
-
 .menu > li:nth-child(3) > a{
     justify-content: center;
 }
@@ -187,17 +186,20 @@ a {
     border-radius: 5px;
 }
 
-#openBtn1:hover{
+#openBtn1:hover {
     background-color: #ccc;
     border-radius: 5px;
+    
 }
-#openBtn2:hover{
+#openBtn2:hover {
     background-color: #ccc;
     border-radius: 5px;
+
 }
-#openBtn3:hover{
+#openBtn3:hover {
     background-color: #ccc;
     border-radius: 5px;
+    
 }
 
 
