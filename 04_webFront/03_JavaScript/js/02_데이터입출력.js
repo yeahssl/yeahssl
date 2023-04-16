@@ -7,7 +7,7 @@ function getBoxText() {
 
     /* var(Variable : 변수) */
 
-    /* vat test1 -> 변수 test1을 선언 (자료형 X) */
+    /* var test1 -> 변수 test1을 선언 (자료형 X) */
 
     /* JS는 대입되는 값에 따라 변수 자료형이 정해진다 */
     var test1 = document.getElementById("test1");

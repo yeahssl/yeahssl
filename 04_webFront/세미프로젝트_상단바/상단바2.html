@@ -13,7 +13,7 @@
 
 <body>
 
-    <header class="container">
+    <header id="container">
     
             <div class="home-logo">
                 <a href="#"><img src="/images/images/facebook-logo.png"></a>
@@ -31,8 +31,6 @@
 
                     </fieldset>
                 </form>
-            </div>
-            </div>
             </div>
 
             <div class="top-menu">
@@ -56,79 +54,31 @@
                 </ul>
             </div> 
 
+            <div id="dropdownBox">
                     <!-- 알림 버튼 -->
-                <nav id="dropdown">   
+                <div id="dropdown1">   
+                    <button  onclick="bell()" id="dropBtn1"><img src="/images/images/bell.png" id="image1"></button>
                 
-                    
                     <!-- 알림 버튼 클릭 시 하위 메뉴 -->
                     <div id="bellDropdown" class="dropdown-content1">
-                        <button  onclick="bell()" id="dropBtn1"><img src="/images/images/bell.png"></button>
                         <a href="#">알림 내용</a>
-                    </div>    
+                    </div> 
+                </div>
                     
-
+                <div id="dropdown2">
                     <!-- 내정보 버튼 -->
-                    
+                    <button  onclick="my()" id="dropBtn2"><img src="/images/images/user-deafult.png" id="image2"></button>
+                
                     <!-- 내정보 버튼 클릭 시 하위 메뉴 -->
                     <div id="myDropdown" class="dropdown-content2">
-                        <button  onclick="my()" id="dropBtn2"><img src="/images/images/user-deafult.png"></button>
                             <a href="#">내정보</a>
                             <a href="#">설정</a>
                             <a href="#">의견 보내기</a>
                             <a href="#">1:1문의</a>
                             <a href="#">로그아웃</a>
                     </div>         
-                
-                </nav> 
-
-            
-<!-- 
-            <script>
-                // 자바스크립트 작성 영역
-        
-                // 열기 버튼
-                const openBtn1 = document.getElementById('openBtn1');
-                const openBtn2 = document.getElementById('openBtn2');
-                const openBtn3 = document.getElementById('openBtn3');
-            
-                
-                // 닫기 버튼
-                const closeBtn1 = document.getElementById('closeBtn1');
-                const closeBtn2 = document.getElementById('closeBtn2');
-                const closeBtn3 = document.getElementById('closeBtn3');
-            
-        
-                // nav 요소
-                const nav1 = document.querySelector('nav1');
-                const nav2 = document.querySelector('nav2');
-                const nav3 = document.querySelector('nav3');
-                
-        
-                // 열기 버튼을 누르면 nav의 dispaly가 flex로 변경
-                openBtn1.addEventListener("click", () => {
-                    nav1.style.display = "flex";
-                } );
-                openBtn2.addEventListener("click", () => {
-                    nav2.style.display = "flex";
-                } );
-                openBtn3.addEventListener("click", () => {
-                    nav3.style.display = "flex";
-                } );
-        
-                // 닫기 버튼을 누르면 nav의 display가 none으로 변경
-                closeBtn1.addEventListener("click", function(){
-                    nav1.style.display = "none";
-                });
-                closeBtn2.addEventListener("click", function(){
-                    nav2.style.display = "none";
-                });
-                closeBtn3.addEventListener("click", function(){
-                    nav3.style.display = "none";
-                });
-        
-            
-            </script> -->
-
+                </div>  
+            </div>
     </header>
     
 </body>
