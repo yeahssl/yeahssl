@@ -76,7 +76,7 @@ function testFn2(){
 
 testFn2(); // 함수 호출
 // console.log("함수 내부에 선언한 let2 : " + let2);
-// let2 is net defined
+// let2 is not defined
 
 // var의 호이스팅(hoisting) : 
 // 변수가 선언되기 전에 사용 가능하게 하는 기술
