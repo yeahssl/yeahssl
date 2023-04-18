@@ -13,6 +13,7 @@ public class ExampleController1 extends HttpServlet {
 	// doGet() 메서드
 	// -> GET 방식 요청을 처리하는 메서드
 	// -> HttpServlet의 메서드 오버라이딩
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -70,7 +71,6 @@ public class ExampleController1 extends HttpServlet {
 			
 			out.println("</h1>");
 		out.println("</body>");
-		
 		
 		out.println("</html>");
 		
