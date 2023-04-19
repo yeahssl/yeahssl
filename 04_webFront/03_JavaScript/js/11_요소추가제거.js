@@ -1,25 +1,38 @@
 // 계산 버튼 클릭 시 
 // input 태그에 작성된 값을 모두 읽어와 합한 결과를 alert로 출력
 
-document.getElementById('calc').addEventListener('click', () => {
+// document.getElementById('calc').addEventListener('click', () => {
 
-    // 계산 버튼이 클릭되는 시점의 .in input 태그들을 모두 읽어옴
-    const list = document.getElementsByClassName('in');
-    let sum = 0; // 합계 저장용 변수
+//     // 계산 버튼이 클릭되는 시점의 .in input 태그들을 모두 읽어옴
+//     const list = document.getElementsByClassName('in');
+//     let sum = 0; // 합계 저장용 변수
 
-    // for(let i=0; i<list.length; i++) {
+//     // for(let i=0; i<list.length; i++) {
 
-    //     // HTML에 작성된 모든 내용, 속성, 값은 String(문자열)!
-    //     sum += Number(list[i].value);
-    // }
+//     //     // HTML에 작성된 모든 내용, 속성, 값은 String(문자열)!
+//     //     sum += Number(list[i].value);
+//     // }
     
-    // 향상된 for문 
-    for(let input of list){
-        sum += Number(input.value);
-    }
-    alert(sum);
-})
+//     // 향상된 for문 
+//     for(let input of list){
+//         sum += Number(input.value);
+//     }
+//     alert(sum);
+// })
 
+const calc = document.getElementById('calc');
+const list = document.getElementsByClassName('in');
+
+calc.addEventListener('click', ()=> {
+
+    let sum = 0; // 합계 저장용 변수
+    
+    for( let input of list){
+	sum += Number(input.value);
+	}
+	alert(sum);
+
+})
 
 //-----------------------------------------------------------------
 // 추가 버튼이 클릭 되었을 때
@@ -84,7 +97,7 @@ document.getElementById('add').addEventListener('click', () => {
     // -----------------------------------------------
 
     // div의 자식으로 input 추가
-    // div.append(input);
+ /*    div.append(input); */
     div.prepend(input);
 
     // div의 마지막 자식으로 span 추가

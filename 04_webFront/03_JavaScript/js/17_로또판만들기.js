@@ -2,7 +2,7 @@ const createBtn = document.getElementById("createBtn");
 const lottoBoard = document.getElementById("lottoBoard");
 const number = document.getElementsByClassName("number");
 
-document.getElementById("createBtn").addEventListener("click",()=>{
+createBtn.addEventListener("click",()=>{
     lottoBoard.innerHTML = ""; // 이전에 생성된 내용을 모두 삭제
                                 // 클릭할 때 마다 계속 번호가 삭제되는걸 방지
 
@@ -13,7 +13,7 @@ document.getElementById("createBtn").addEventListener("click",()=>{
         child.classList.add("number");
 
         // child가 클릭 되었을 때 배경색 변경/제거
-        //+ 6개 넘으면 클릭 부락
+        //+ 6개 넘으면 클릭 불가
         child.addEventListener("click",e=>{
             if(e.target.classList.contains("active")){
                 e.target.classList.toggle("active");
