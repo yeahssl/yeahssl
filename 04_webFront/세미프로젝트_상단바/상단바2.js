@@ -21,6 +21,7 @@ s_arr2.name = "테스트2";
 s_arr2.count = 1;
 
 s_arr.push(s_arr2);
+s_arr.push(s_arr1);
 
 
 // input 태그 이벤트
