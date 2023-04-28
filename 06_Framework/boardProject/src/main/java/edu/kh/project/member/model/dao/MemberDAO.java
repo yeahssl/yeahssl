@@ -14,6 +14,7 @@ public class MemberDAO {
 	@Autowired // 등록된 Bean 중에서 SqlSessionTemplate 타입의 Bean을 주입
 	private SqlSessionTemplate sqlSession;
 	
+	
 	/** 로그인 DAO
 	 * @param inputMember
 	 * @return 회원 정보 또는 null
@@ -29,6 +30,23 @@ public class MemberDAO {
 		
 		
 		return sqlSession.selectOne("memberMapper.login", inputMember);
+	}
+
+	/** 회원 가입 DAO
+	 * @param inputMember
+	 * @return result
+	 */
+	public int signUp(Member inputMember) {
+		// 1) mapper의 namesapce를 지정 후
+		// 그 안에 어떤 id를 가지는 sql을 수행할지 작성
+
+		// 2) SQL에 사용할 데이터를 전달(자료형 중요!)
+		
+		// return sqlSession.insert(" 1) memberMapper.signUp",2) inputMember);
+		
+		
+		// insert 성공한 행의 개수 반환 
+		return sqlSession.insert("memberMapper.signUp",inputMember);
 	}
 
 }

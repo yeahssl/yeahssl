@@ -7,21 +7,39 @@ const suggestion_pannel = document.querySelector(".suggestions_pannel");
 // 검색 버튼
 const searchBtn = document.getElementById("searchBtn");
 
-// 자동완성 데이터 초기 설정
+// 자동완성 데이터 초기 설정(친구 이름 검색 시)
 let s_arr = new Array();
 let s_arr1 = new Array();
 let s_arr2 = new Array();
+let s_arr3 = new Array();
+let s_arr4 = new Array();
+let s_arr5 = new Array();
+let s_arr6 = new Array();
 
-s_arr1.name = "테스트";
+s_arr1.name = "최팀장님";
 s_arr1.count = 1;
 
-s_arr2.push(s_arr1);
-
-s_arr2.name = "테스트2";
+s_arr2.name = "장과장님";
 s_arr2.count = 1;
 
-s_arr.push(s_arr2);
+s_arr3.name = "조대리님";
+s_arr3.count = 1;
+
+s_arr4.name = "정사원";
+s_arr4.count = 1;
+
+s_arr5.name = "박사원";
+s_arr5.count = 1;
+
+s_arr6.name = "이사원";
+s_arr6.count = 1;
+
 s_arr.push(s_arr1);
+s_arr.push(s_arr2);
+s_arr.push(s_arr3);
+s_arr.push(s_arr4);
+s_arr.push(s_arr5);
+s_arr.push(s_arr6);
 
 
 // input 태그 이벤트
@@ -65,6 +83,8 @@ searchBtn.addEventListener('click', () => {
 
     if(input_value.length == 0){
         alert("검색어를 입력해주세요.");
+        
+
     } else {
         // 현재까지 검색한 것 중 일치하는게 있는지 확인
         for (i=0; i<s_arr.length; i++){
@@ -86,6 +106,9 @@ searchBtn.addEventListener('click', () => {
     suggestion_pannel.innerHTML = "";
 
 })
+
+// 해시태그 연관 검색어 만들기
+
 
 
 
@@ -126,4 +149,7 @@ window.onclick = function(e){
         }
     }
 }
+
+
+
 
