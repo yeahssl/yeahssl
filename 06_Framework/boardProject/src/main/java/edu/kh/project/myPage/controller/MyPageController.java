@@ -1,5 +1,8 @@
 package edu.kh.project.myPage.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,10 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.myPage.model.service.MyPageService;
+import oracle.jdbc.proxy.annotation.Post;
 
 @SessionAttributes({"loginMember"}) 
 // 1) Model에 세팅된 값의 key와 {}작성된 값이 일치하면 session scope로 이동
@@ -102,6 +107,100 @@ public class MyPageController {
 		
 		return "redirect:info"; // 상대 경로 ( /myPage/info GET 방식 )
 	}
+	
+	// 비밀번호 변경
+	@PostMapping("/changePw")
+	public String changePw(String currentPw, String newPw,
+						@SessionAttribute("loginMember") Member loginMember,
+						RedirectAttributes ra) {
+		
+		// 로그인한 회원 번호(DB에서 어떤 회원을 조회, 수정 알아야 되니까)
+		int memberNo = loginMember.getMemberNo();
+		
+		// 비밀번호 변경 서비스 호출
+		int result = service.changePw(currentPw, newPw, memberNo);
+		
+		String path = "redirect:";
+		String message = null;
+		
+		if(result > 0) { // 변경 성공
+			message = "비밀번호가 변경 되었습니다.";
+			path += "info";
+			
+		}else { // 변경 실패
+			message = "현재 비밀번호가 일치하지 않습니다.";
+			path += "changePw";
+		}
+	
+		ra.addFlashAttribute("message",message);
+		
+		return path;
+	}
+	
+	// 회원 탈퇴
+	@PostMapping("/secession")
+	public String secession(String memberPw, 
+					@SessionAttribute("loginMember") Member loginMember,
+					SessionStatus st, HttpServletResponse resp,
+					RedirectAttributes ra) {
+		
+		// String memberPw : 입력한 비밀번호
+		// SessionStatus st : 세션 관리 객체
+		// HttpServletResponse resp : 서버 -> 클라이언트 응답하는 방법 제공 객체
+		// RedirectAttributes ra : 리다이렉트 시 request로 값 전달하는 객체
+		
+		
+		// 1. 로그인한 회원의 회원 번호 얻어오기
+		
+		int memberNo = loginMember.getMemberNo();
+		
+		// 2. 회원 탈퇴 서비스 호출
+		int result = service.secession(memberPw, memberNo);
+		
+		// - 비밀번호가 일치하면 MEMBER_DEL_FL -> 'Y'로 바꾸고 1반환
+		// - 비밀번호가 일치하지 않으면 -> 0 반환
+		
+		
+		String path = "redirect:";
+		String message = null;
+		
+		
+		
+		
+		// 3. 탈퇴 성공
+		if(result > 0) {
+			// - message : 탈퇴 되었습니다.
+			message = "탈퇴 되었습니다.";
+			// - 메인 페이지로 리다이렉트
+			path += "/";
+			// - 로그아웃
+			st.setComplete();
+			// + 쿠키 삭제
+			Cookie cookie = new Cookie("saveId", "");
+			// 같은 쿠키가 이미 존재하면 덮어쓰기 된다
+
+			cookie.setMaxAge(0); // 0초 생존 -> 삭제
+			cookie.setPath("/"); // 요청 시 쿠키가 첨부되는 경로
+			resp.addCookie(cookie); // 요청 객체를 통해서 클라이언트에게 전달
+									// -> 클라이언트 컴퓨터에 파일로 생성 
+		
+			
+		// 4. 탈퇴 실패 시 
+		} else {
+			// - message : 현재 비밀번호가 일치하지 않습니다.
+			// - 회원 탈퇴 페이지로 리다이렉트
+			message = "현재 비밀번호가 일치하지 않습니다.";
+			path += "secession";
+		}
+		
+		ra.addFlashAttribute("message",message);
+		
+		return path;
+		
+	}
+	
+	
+	
 	
 }
 
