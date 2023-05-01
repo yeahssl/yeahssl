@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEP 회원가입 화면 설계</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+
+            font-size: 45px;
+            font-weight: bold;
+            margin: 20px;
+
+            color: #0d6375;
+        }
+
+        .line {
+            border-bottom: 1px solid #ccc;
+        }
+
+        #signUp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin-top: 30px;
+
+        }
+
+        #signUp div {
+            margin: 15px 0px 20px 0px;
+            font-size: 23px;
+            color: #5f5c5c;
+        }
+
+        .must {
+            color: rgb(228, 29, 29)
+        }
+
+        fieldset {
+            border: 1px solid #9f9e9e;
+
+            border-radius: 10px;
+        }
+
+        fieldset>legend {
+            font-size: 22px;
+            color: #756e6e;
+
+        }
+
+        input {
+            display: inline-block;
+            height: 28px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+
+        }
+
+        input:focus {
+            outline: 1px solid gray;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn>button {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            border: 1px solid #9f9e9e;
+
+            background-color: rgba(41, 155, 165, 0.418);
+            border-radius: 10px;
+
+        }
+
+        .btn>button:hover {
+            background-color: darkslategray;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header id="container">
+        <span id="title">STEP 회원가입</span>
+    </header>
+
+    <div class="line"></div>
+
+    <main id="signUp">
+
+        <form action="#">
+
+            <fieldset>
+                <legend>정보 입력</legend>
+                <div>
+                    <span class="must">*</span> 아이디 : <input type="text" required>
+                </div>
+                <div>
+                    <span class="must">*</span> 비밀번호: <input type="password" required>
+                </div>
+                <div>
+                    <span class="must">*</span> 비밀번호 재확인 : <input type="password" required>
+                </div>
+                <div>
+                    <span class="must">*</span> 이름 : <input type="text" required>
+                </div>
+                <div>
+                    <span class="must">*</span> 이메일 : <input type="email" required>
+                </div>
+            </fieldset>
+
+            <div class="btn"><button>가입하기</button></div>
+
+
+        </form>
+    </main>
+
+
+
+</body>
+
+</html>

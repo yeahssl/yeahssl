@@ -1,5 +1,7 @@
 // 검색어 누적창 구현
 
+// 검색어 누적창 구현
+
 // 검색 input 태그
 const search = document.getElementById("query");
 // 자동완성 목록
@@ -8,106 +10,77 @@ const suggestion_pannel = document.querySelector(".suggestions_pannel");
 const searchBtn = document.getElementById("searchBtn");
 
 // 자동완성 데이터 초기 설정(친구 이름 검색 시)
-let s_arr = new Array();
-let s_arr1 = new Array();
-let s_arr2 = new Array();
-let s_arr3 = new Array();
-let s_arr4 = new Array();
-let s_arr5 = new Array();
-let s_arr6 = new Array();
+let s_arr = [
+    { name: "최팀장님",},
+    { name: "장과장님"},
+    { name: "조대리님"},
+    { name: "정사원"},
+    { name: "박사원"},
+    { name: "이사원"},
+];
 
-s_arr1.name = "최팀장님";
-s_arr1.count = 1;
-
-s_arr2.name = "장과장님";
-s_arr2.count = 1;
-
-s_arr3.name = "조대리님";
-s_arr3.count = 1;
-
-s_arr4.name = "정사원";
-s_arr4.count = 1;
-
-s_arr5.name = "박사원";
-s_arr5.count = 1;
-
-s_arr6.name = "이사원";
-s_arr6.count = 1;
-
-s_arr.push(s_arr1);
-s_arr.push(s_arr2);
-s_arr.push(s_arr3);
-s_arr.push(s_arr4);
-s_arr.push(s_arr5);
-s_arr.push(s_arr6);
+// 자동완성 (#검색)
+let hashTagArr = [
+    {tagName : "#사과"},
+    {tagName : "#바나나"},
+    {tagName : "#수박"},
+    {tagName : "#메론"},
+    {tagName : "#딸기"},
+    {tagName : "#파인애플"},
+    {tagName : "#여행"},
+    {tagName : "#코딩"},
+    {tagName : "#주말"},
+    
+];
 
 
 // input 태그 이벤트
-search.addEventListener('keyup', () => {
+search.addEventListener("keyup", (event) => {
+    
+    event.preventDefault();
 
-    if(window.event.keyCode == 13){ // 13 == enter key 
-
-        window.event.preventDefault();
-        searchBtn.click();
-    }
-    suggestion_pannel.innerHTML = '';
-
+    suggestion_pannel.innerHTML = "";
 
     let input_value = search.value;
 
-    let suggestions = s_arr.filter( function(exam) {
-        return exam.name.toLowerCase().startsWith(input_value);
-    }); 
+    // #으로 시작하는 검색어인 경우
+    if (input_value.startsWith("#")) {
+        hashTagArr.forEach(function (tag) {
+            if (tag.tagName.toLowerCase().startsWith(input_value.toLowerCase())) {
+                let div = document.createElement("div");
+                div.innerHTML = tag.tagName;
+                suggestion_pannel.appendChild(div);
 
-    suggestions.forEach(function(suggested){
-        let div = document.createElement("div");
-        div.innerHTML = suggested.name;
-        suggestion_pannel.appendChild(div);
+                div.onclick = () => {
+                    input_value = div.innerHTML;
+                    suggestion_pannel.innerHTML = "";
+                };
+            }
+        });
+    } else { // 일반 검색어인 경우
+        let suggestions = s_arr.filter(function (exam) {
+            return exam.name.toLowerCase().startsWith(input_value);
+        });
 
-        div.onclick= () => {
-            search.value = div.innerHTML;
-            suggestion_pannel.innerHTML='';
-        }
-    }); 
-    if(input_value == ''){
-        suggestion_pannel.innerHTML='';
+        suggestions.forEach(function (suggested) {
+            let div = document.createElement("div");
+            div.innerHTML = suggested.name;
+            
+            suggestion_pannel.appendChild(div);
+
+            div.onclick = () => {
+                input_value = div.innerHTML;
+                suggestion_pannel.innerHTML = "";
+            };
+        });
     }
-
+    if (input_value == "") {
+        suggestion_pannel.innerHTML = "";
+    }
 });
 
 
-// 검색어 입력 시 
-searchBtn.addEventListener('click', () => {
-    // 현재 입력된 검색어
-    let input_value = search.value.trim();
 
-    if(input_value.length == 0){
-        alert("검색어를 입력해주세요.");
-        
-
-    } else {
-        // 현재까지 검색한 것 중 일치하는게 있는지 확인
-        for (i=0; i<s_arr.length; i++){
-            if(s_arr[i].name == input_value){
-                s_arr[i].count += 1;
-                break;
-            }
-        if(i == s_arr.length -1){
-            let s_suggest = new Object();
-            s_suggest.name = input_value;
-            s_suggest.count = 1;
-            s_arr.push(s_suggest);
-            }
-
-        }
-
-    }
-    search.value = "";
-    suggestion_pannel.innerHTML = "";
-
-})
-
-// 해시태그 연관 검색어 만들기
 
 
 
@@ -116,11 +89,11 @@ searchBtn.addEventListener('click', () => {
 
 var dropdowns = document.getElementById("bellDropdown");
 
-function bell(){
+function bell() {
     document.getElementById("bellDropdown").classList.toggle("show");
 }
 
-window.onclick = function(e){
+window.onclick = function (e) {
     if (e.target.matches('.dropBtn1')) {
         var dropdowns = document.getElementById("bellDropdown");
         var i;
@@ -133,11 +106,11 @@ window.onclick = function(e){
     }
 }
 
-function my(){
+function my() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(e){
+window.onclick = function (e) {
     if (!e.target.matches('.dropBtn2')) {
         var dropdowns = document.getElementById("myDropdown");
         var i;
