@@ -36,7 +36,7 @@ public class MyPageServiceImpl implements MyPageService {
 	}
 
 	// 비밀번호 변경 서비스
-	//@Transactional // UnChecked Exception 발싱 시 rollback
+	//@Transactional // UnChecked Exception 발생 시 rollback
 	
 	@Transactional(rollbackFor = Exception.class)
 	// 모든 Exception 발생 시 rollback
