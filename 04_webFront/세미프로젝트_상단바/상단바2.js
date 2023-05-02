@@ -86,11 +86,18 @@ search.addEventListener("keyup", (event) => {
 
 
 // 드롭다운 아이콘 구현
-
 var dropdowns = document.getElementById("bellDropdown");
+
+const dropBtn1 = document.getElementById("dropBtn1");
+const dropBtn2 = document.getElementById("dropBtn2");
+const bellDropdown = document.getElementById("bellDropdown");
+const myDropdown = document.getElementById("myDropdown");
+
 
 function bell() {
     document.getElementById("bellDropdown").classList.toggle("show");
+
+    
 }
 
 window.onclick = function (e) {
@@ -104,6 +111,9 @@ window.onclick = function (e) {
             }
         }
     }
+
+    
+
 }
 
 function my() {
@@ -121,7 +131,54 @@ window.onclick = function (e) {
             }
         }
     }
+
+
 }
+
+
+/* 드롭다운 content 영역 */
+
+
+dropBtn1.addEventListener("click", () => {
+    myDropdown.style.display = "none";
+
+    if(bellDropdown.style.display != "none") {
+        bellDropdown.style.display = "none";
+        return;
+    }else{
+        bellDropdown.style.display="block";
+
+    }
+
+
+})
+
+dropBtn2.addEventListener("click", () => {
+    bellDropdown.style.display = "none";
+    if(myDropdown.style.display != "none") {
+        myDropdown.style.display = "none";
+        return;
+    }else{
+        myDropdown.style.display = "block";
+    }
+})
+    
+    
+    
+//     bellDropdown.style.display = "block";
+
+// })
+
+
+
+
+
+
+
+
+
+
+
 
 
 
