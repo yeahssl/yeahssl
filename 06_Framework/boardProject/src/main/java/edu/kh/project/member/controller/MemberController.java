@@ -45,8 +45,6 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	
-	
 	// 로그인 : /member/login
 	// 로그아웃 : /member/logout
 
@@ -79,7 +77,6 @@ public class MemberController {
 	//    POST 방식 요청을 연결하는 어노테이션
 //	@PostMapping("/login")
 	public String login(/*@RequestParam("inputEmail")*/ String inputEmail, /*@RequestParam("inputPw")*/ String inputPw) {
-		
 		
 		// 파라미터 전달 방법 2 : @RequestParam 어노테이션 이용(+생략 방법)
 		

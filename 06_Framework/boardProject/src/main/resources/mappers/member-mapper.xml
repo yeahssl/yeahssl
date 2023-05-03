@@ -27,9 +27,6 @@
 		<result property="authority" column="AUTHORITY" />
 	</resultMap>
 
-
-
-
 	<!-- SQL 관련 태그의 속성 - parameterType : 전달 받은 값의 자료형 기본 : 패키지명 + 클래스명 별칭 : 
 		Mybatis 별칭 또는 사용자 지정 별칭 - parameterMap : (사용안함) - resultType : select 결과를 
 		담아서 반환할 자료형 단, DTO를 작성할 경우 필드명 = 컬럼명 인 경우 가능 memberNo MEMBER_NO - resultMap 

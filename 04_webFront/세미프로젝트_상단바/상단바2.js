@@ -11,32 +11,32 @@ const searchBtn = document.getElementById("searchBtn");
 
 // 자동완성 데이터 초기 설정(친구 이름 검색 시)
 let s_arr = [
-    { name: "최팀장님",},
-    { name: "장과장님"},
-    { name: "조대리님"},
-    { name: "정사원"},
-    { name: "박사원"},
-    { name: "이사원"},
+    { name: "최팀장님", },
+    { name: "장과장님" },
+    { name: "조대리님" },
+    { name: "정사원" },
+    { name: "박사원" },
+    { name: "이사원" },
 ];
 
 // 자동완성 (#검색)
 let hashTagArr = [
-    {tagName : "#사과"},
-    {tagName : "#바나나"},
-    {tagName : "#수박"},
-    {tagName : "#메론"},
-    {tagName : "#딸기"},
-    {tagName : "#파인애플"},
-    {tagName : "#여행"},
-    {tagName : "#코딩"},
-    {tagName : "#주말"},
-    
+    { tagName: "#사과" },
+    { tagName: "#바나나" },
+    { tagName: "#수박" },
+    { tagName: "#메론" },
+    { tagName: "#딸기" },
+    { tagName: "#파인애플" },
+    { tagName: "#여행" },
+    { tagName: "#코딩" },
+    { tagName: "#주말" },
+
 ];
 
 
 // input 태그 이벤트
 search.addEventListener("keyup", (event) => {
-    
+
     event.preventDefault();
 
     suggestion_pannel.innerHTML = "";
@@ -65,7 +65,7 @@ search.addEventListener("keyup", (event) => {
         suggestions.forEach(function (suggested) {
             let div = document.createElement("div");
             div.innerHTML = suggested.name;
-            
+
             suggestion_pannel.appendChild(div);
 
             div.onclick = () => {
@@ -97,7 +97,7 @@ const myDropdown = document.getElementById("myDropdown");
 function bell() {
     document.getElementById("bellDropdown").classList.toggle("show");
 
-    
+
 }
 
 window.onclick = function (e) {
@@ -112,7 +112,7 @@ window.onclick = function (e) {
         }
     }
 
-    
+
 
 }
 
@@ -142,11 +142,11 @@ window.onclick = function (e) {
 dropBtn1.addEventListener("click", () => {
     myDropdown.style.display = "none";
 
-    if(bellDropdown.style.display != "none") {
+    if (bellDropdown.style.display != "none") {
         bellDropdown.style.display = "none";
         return;
-    }else{
-        bellDropdown.style.display="block";
+    } else {
+        bellDropdown.style.display = "block";
 
     }
 
@@ -155,19 +155,45 @@ dropBtn1.addEventListener("click", () => {
 
 dropBtn2.addEventListener("click", () => {
     bellDropdown.style.display = "none";
-    if(myDropdown.style.display != "none") {
+    if (myDropdown.style.display != "none") {
         myDropdown.style.display = "none";
         return;
-    }else{
+    } else {
         myDropdown.style.display = "block";
     }
 })
-    
-    
-    
-//     bellDropdown.style.display = "block";
 
-// })
+
+
+
+
+const outclick = e => {
+    if (!bellDropdown.contains(e.target)) { // 클릭한 요소가 bellDropown의 하위 요소인지 확인
+        bellDropdown.style.display = "none"; // bellDropown를 숨김
+        document.removeEventListener("click", outclick); // 클릭 이벤트 리스너 제거
+    }
+
+
+    if (!myDropdown.contains(e.target)) { // 클릭한 요소가 myDropdown의 하위 요소인지 확인
+        myDropdown.style.display = "none"; // myDropdown를 숨김
+        document.removeEventListener("click", outclick); // 클릭 이벤트 리스너 제거
+    }
+
+};
+
+// dropBtn1.addEventListener("click", e => {
+//     e.stopPropagation(); // dropBtn1 클릭 이벤트 전파 방지
+//     bellDropdown.style.display = "block"; // bellDropdown를 보임
+//     document.addEventListener("click", outclick); // 클릭 이벤트 리스너 등록
+// });
+
+
+
+// dropBtn2.addEventListener("click", e => {
+//     e.stopPropagation(); //dropBtn2 클릭 이벤트 전파 방지
+//     myDropdown.style.display = "block"; // myDropdown를 보임
+//     document.addEventListener("click", outclick); // 클릭 이벤트 리스너 등록
+// });
 
 
 
