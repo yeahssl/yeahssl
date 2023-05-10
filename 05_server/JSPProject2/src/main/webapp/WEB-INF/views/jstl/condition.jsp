@@ -68,7 +68,7 @@
         gt (greater) : > 초과
 
         le (little or equal) : <= 이하
-        ge (greater or uqual) : >= 이상
+        ge (greater or equal) : >= 이상
     --%>
 
     <c:choose>
