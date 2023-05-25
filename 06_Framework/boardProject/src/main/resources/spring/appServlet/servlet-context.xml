@@ -64,7 +64,7 @@
 		transaction-manager="transactionManager" />
 
 	<!-- AOP Proxy를 이용한 관점 제어 자동화 -->
-	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy/>
 
 
 	<!-- 웹소켓 처리 클래스를 bean으로 등록 시작태그끝 / -->
