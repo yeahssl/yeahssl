@@ -1,0 +1,56 @@
+{
+	"folders": {},
+	"connections": {
+		"oracle_thin-18893b18d41-2d52f9e1e5aec2d7": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "project 계정",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "1521",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//localhost:1521/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\app\\user1\\product\\18.0.0\\dbhomeXE",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		},
+		"oracle_thin-18893c966b2-32ff66f000e46054": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "beansGarden 계정",
+			"save-password": true,
+			"configuration": {
+				"host": "115.90.212.18",
+				"port": "10000",
+				"database": "ORCL",
+				"url": "jdbc:oracle:thin:@//115.90.212.18:10000/ORCL",
+				"configurationType": "MANUAL",
+				"home": "C:\\app\\user1\\product\\18.0.0\\dbhomeXE",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": false,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
