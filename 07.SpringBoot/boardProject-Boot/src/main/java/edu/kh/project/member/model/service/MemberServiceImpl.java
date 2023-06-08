@@ -42,10 +42,12 @@ public class MemberServiceImpl implements MemberService{
       
       return loginMember;
    }
+   
    @Transactional(rollbackFor = {Exception.class}) 
    @Override
    public int signUp(Member inputMember) {
       
+	  // 비밀번호를 암호화 하는 작업
       String encPw = bcrypt.encode(inputMember.getMemberPw());
       inputMember.setMemberPw(encPw);
       
