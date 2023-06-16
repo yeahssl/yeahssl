@@ -114,6 +114,6 @@ public interface BoardMapper {
 	 * 
 	 * @return
 	 */
-	public List<String> selectImageList();
+	public List<String> selectImageListAll();
 
 }

@@ -1,0 +1,84 @@
+
+-- FAQ 전체 목록 조회
+SELECT * 
+FROM FAQ
+LEFT JOIN "FAQ_CATEGORY"  USING (FAQ_CATEGORY)
+WHERE FAQ_DELETE_FL = 'N';
+
+SELECT * FROM FAQ;
+
+
+CREATE TABLE "FAQ_CATEGORY" (
+	"FAQ_CATEGORY"	CHAR(1)		NOT NULL,
+	"CATEGORY_TITLE"	VARCHAR2(20)		NOT NULL
+);
+
+COMMENT ON COLUMN "FAQ_CATEGORY"."FAQ_CATEGORY" IS '문의 분류(P:영화관, M:영화, U:멤버쉽, B:예매/결제, H:홈페이지 A:계정)';
+
+COMMENT ON COLUMN "FAQ"."FAQ_CATEGORY" IS '문의 분류(P:영화관, M:영화, U:멤버쉽)';
+
+
+
+COMMENT ON COLUMN "FAQ_CATEGORY"."CATEGORY_TITLE" IS '카테고리 제목 사용';
+
+ALTER TABLE "FAQ_CATEGORY" ADD CONSTRAINT "PK_FAQ_CATEGORY" PRIMARY KEY (
+	"FAQ_CATEGORY"
+);
+
+
+-- 카테고리 종류 삽입
+INSERT INTO "FAQ_CATEGORY" VALUES('P', '상영관');
+INSERT INTO "FAQ_CATEGORY" VALUES('M', '회원');
+INSERT INTO "FAQ_CATEGORY" VALUES('U', '멤버십');
+INSERT INTO "FAQ_CATEGORY" VALUES('', '멤버십');
+INSERT INTO "FAQ_CATEGORY" VALUES('U', '멤버십');
+
+DELETE FROM FAQ
+WHERE FAQ_CATEGORY = 'A';
+DELETE FROM FAQ
+WHERE FAQ_CATEGORY = 'B';
+
+ROLLBACK;
+
+COMMIT;
+
+SELECT * FROM "FAQ_CATEGORY";
+
+-- FAQ 샘플 데이터 삽입
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '상영관은 몇 개인가요?', '상영관은 총 3개의 관으로 이루어져 있으며, 좌석은 동일하게 배치되어 있습니다.', 'N', 'P'
+); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '회원탈퇴는 어떻게 하나요?', '내정보 수정에서 회원탈퇴를 하실 수 있습니다.', 'N', 'M'
+); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '멤버십 등급은 어떻게 나누어 지나요?', '브론즈, 실버, 골드, 플래티넘으로 단계가 나누어져 있고, 자세한 사항은 멤버십 이용약관을 참고해 주세요.', 'N', 'U'
+); 
+
+COMMIT;
+
+-- FAQ(상영관 이용 관련) 목록 조회
+SELECT * 
+FROM FAQ
+LEFT JOIN "FAQ_CATEGORY"  USING (FAQ_CATEGORY)
+WHERE FAQ_DELETE_FL = 'N'
+AND FAQ_CATEGORY = 'P';
+
+SELECT * FROM FAQ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

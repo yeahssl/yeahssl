@@ -1,1 +1,1 @@
-{"resources":{"00_사용자_계정_생성(sys).sql":{"default-schema":"beansGarden","default-datasource":"oracle_thin-18893c966b2-32ff66f000e46054"}}}
+{"resources":{"00_사용자_계정_생성(sys).sql":{"default-schema":"PROJECT","default-datasource":"oracle_thin-18893b18d41-2d52f9e1e5aec2d7"},"Scripts/DGC Project.sql":{"default-datasource":"oracle_thin-18893c966b2-32ff66f000e46054","default-schema":"beansGarden"},"Scripts/Script.sql":{"default-datasource":"oracle_thin-18893c966b2-32ff66f000e46054","default-schema":"beansGarden"}}}

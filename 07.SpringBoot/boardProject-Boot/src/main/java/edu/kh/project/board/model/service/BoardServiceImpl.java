@@ -150,7 +150,7 @@ public class BoardServiceImpl implements BoardService {
 	// DB 이미지(파일) 목록 조회
 	@Override
 	public List<String> selectImageList() {
-		return mapper.selectImageList();
+		return mapper.selectImageListAll();
 	}
 
 }
