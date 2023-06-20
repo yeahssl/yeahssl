@@ -27,10 +27,10 @@
 			"name": "beansGarden 계정",
 			"save-password": true,
 			"configuration": {
-				"host": "115.90.212.18",
+				"host": "115.90.212.20",
 				"port": "10000",
 				"database": "ORCL",
-				"url": "jdbc:oracle:thin:@//115.90.212.18:10000/ORCL",
+				"url": "jdbc:oracle:thin:@//115.90.212.20:10000/ORCL",
 				"configurationType": "MANUAL",
 				"home": "C:\\app\\user1\\product\\18.0.0\\dbhomeXE",
 				"type": "dev",

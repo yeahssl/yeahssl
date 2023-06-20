@@ -56,7 +56,7 @@
 		<result property="profileImage" column="PROFILE_IMG" />
 	</resultMap>
 
-
+ 
 
 	<!-- resultType이 "map" 인 경우 K : 컬럼 명(BOARD_CODE, BOARD_NAME) V : 컬럼 값( 1 
 		, 공지 사항) -->

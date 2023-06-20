@@ -20,8 +20,7 @@
 
 
 
-	<select id="selectNickname" parameterType="string"
-		resultType="string">
+	<select id="selectNickname" parameterType="string" resultType="string">
 		SELECT MEMBER_NICKNAME
 		FROM "MEMBER"
 		WHERE MEMBER_EMAIL =
