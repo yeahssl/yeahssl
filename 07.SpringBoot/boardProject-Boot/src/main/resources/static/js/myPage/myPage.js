@@ -109,6 +109,7 @@ if (changePwFrm != null) { //비밀번호 변경 페이지인 경우
     });
 }
 
+// 탈퇴할 경우
 const secessionFrm = document.getElementById("secessionFrm");
 
 if(secessionFrm != null) { // 탈퇴 페이지인 경우

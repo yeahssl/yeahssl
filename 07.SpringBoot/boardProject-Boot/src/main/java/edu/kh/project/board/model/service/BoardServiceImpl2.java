@@ -115,7 +115,7 @@ public class BoardServiceImpl2 implements BoardService2 {
 						// 파일로 변환
 						String rename = uploadList.get(i).getImageReName();
 						images.get(index).transferTo(new File(filePath + rename));
-					}
+					}									//image/ rename .jpg
 
 				} else { // 일부 또는 전체 insert 실패
 
