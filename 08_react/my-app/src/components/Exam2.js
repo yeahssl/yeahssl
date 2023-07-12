@@ -23,9 +23,6 @@ function Exam2(){
             
         </>
     );
-
-
-    
 }
 
 export default Exam2;

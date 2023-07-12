@@ -38,22 +38,63 @@ WHERE FAQ_CATEGORY = 'A';
 DELETE FROM FAQ
 WHERE FAQ_CATEGORY = 'B';
 
+DELETE FROM FAQ; 
+
+
 ROLLBACK;
 
 COMMIT;
 
 SELECT * FROM "FAQ_CATEGORY";
+SELECT * FROM "FAQ";
 
 -- FAQ 샘플 데이터 삽입
 INSERT INTO "FAQ" VALUES(
-	SEQ_FAQ_NO.NEXTVAL, '상영관은 몇 개인가요?', '상영관은 총 3개의 관으로 이루어져 있으며, 좌석은 동일하게 배치되어 있습니다.', 'N', 'P'
+	SEQ_FAQ_NO.NEXTVAL, '상영관은 몇 개인가요?', '상영관은 총 3개로 이루어져 있습니다.', 'N', 'P'
 ); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '분실물을 찾고 싶어요.', '안녕하세요. 드림가든 시네마입니다.
+분실물이 생긴 경우 1:1문의를 통해 연락을 남겨주시면 도움을 드리도록 하겠습니다.', 'N', 'P'
+); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '상영관에서 음식물 섭취가 가능한가요?', '코로나19로 섭취가 일시적으로 불가능 했으나, 현재는 섭취가 가능합니다.', 'N', 'P'
+); 
+ 
+ 
 INSERT INTO "FAQ" VALUES(
 	SEQ_FAQ_NO.NEXTVAL, '회원탈퇴는 어떻게 하나요?', '내정보 수정에서 회원탈퇴를 하실 수 있습니다.', 'N', 'M'
 ); 
 INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '비회원으로 예매가 가능한가요?', '안녕하세요, 드림가든시네마 입니다. 
+저희 영화관은 회원가입 후, 예매가 가능하십니다. 
+감사합니다.', 'N', 'M'
+); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '개인정보는 어디에서 수정할 수 있나요?', '마이페이지 > 내정보 변경 탭 에서 수정 가능 합니다.', 'N', 'M'
+); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '회원가입은 어떻게 하나요?', '상단바에 있는 회원가입 탭에서 하실 수 있습니다.', 'N', 'M'
+); 
+
+INSERT INTO "FAQ" VALUES(
 	SEQ_FAQ_NO.NEXTVAL, '멤버십 등급은 어떻게 나누어 지나요?', '브론즈, 실버, 골드, 플래티넘으로 단계가 나누어져 있고, 자세한 사항은 멤버십 이용약관을 참고해 주세요.', 'N', 'U'
 ); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '멤버쉽 금액 기준을 알고싶어요.', '안녕하세요. 드림가든 시네마입니다.
+
+일반 회원 기준 : 브론즈
+4만원 이상 시 : 실버
+10만원 이상 시 : 골드
+20만원 이상 시: 플래티넘입니다.
+
+감사합니다.
+자세한 문의는 1:1문의하기에서 문의 바랍니다.', 'N', 'U'
+); 
+INSERT INTO "FAQ" VALUES(
+	SEQ_FAQ_NO.NEXTVAL, '멤버십 쿠폰은 어디서 사용할 수 있나요?', '영화 예매시, 쿠폰사용하기를 클릭하시면 현재 가지고 계신 쿠폰을 사용하실 수 있습니다.
+자세한 사항은 멤버십 페이지 혹은 멤버십 이용약관을 참고해 주세요.', 'N', 'U'
+); 
+
 
 COMMIT;
 

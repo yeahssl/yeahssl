@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 // 1. Component 상속 받기
 // 2. render() 함수 작성하기
 // 3. 만든 class를 export dafault 지정하기
+
 class Exam1 extends Component{
     
     constructor(props){

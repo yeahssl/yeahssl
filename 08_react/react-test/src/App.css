@@ -1,0 +1,9 @@
+#root { text-align: center;}
+
+.print{
+  border: 1px solid black;
+  width: 80%;
+  height: 70px;
+  margin-top: 20px;
+  margin-left: 120px;
+}
